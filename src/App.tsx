@@ -4,6 +4,7 @@ import RoutesWithNotFound from "./components/RoutesWithNotFound"
 import { PrivRoutes, PubRoutes } from "./const/routes.const"
 import AuthRoutes from "./components/AuthRoutes"
 import PrivatePages from "./components/PrivatePages"
+import LoginPage from "./pages/private/LoginPage/LoginPage"
 
 function App() {
 
@@ -13,13 +14,12 @@ function App() {
         <RoutesWithNotFound>
           <Route path="/" element={<Navigate to={PrivRoutes.AUTH} />} />
 
-          <Route path={PubRoutes.LOGIN} element={<h1>Login</h1>} />
+          <Route path={PubRoutes.LOGIN} element={<LoginPage />} />
 
           <Route element={<AuthRoutes />}>
             <Route path={`${PrivRoutes.AUTH}/*`} element={<PrivatePages />} />
           </Route>
         </RoutesWithNotFound>
-        <Counter />
       </HashRouter>
     </>
   )
