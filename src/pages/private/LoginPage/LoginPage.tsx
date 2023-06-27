@@ -1,9 +1,9 @@
-import { CheckBox, Lock, Person, PersonPin, PersonPinCircleTwoTone } from "@mui/icons-material"
+import { Lock, Person, PersonPin } from "@mui/icons-material"
 import { Box, Button, Checkbox, FormControlLabel, InputAdornment, Stack, TextField, Typography } from "@mui/material"
 
-type Props = {}
 
-const LoginPage = (props: Props) => {
+
+const LoginPage = () => {
 
   const startIconUser = {
     startAdornment: (

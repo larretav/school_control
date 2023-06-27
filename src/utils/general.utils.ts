@@ -1,5 +1,3 @@
-import { stringToDate } from "./dates.utils";
-
 export const isEmptySpace = (string: string): boolean => {
   return string.replaceAll(' ', '').length == 0;
 }

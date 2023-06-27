@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { LocalStorageConst } from '@/const/local-storage.const';
 import { RootState } from '@/redux/app/store';
 import { removeLocalStorage, setLocalStorage, getLocalStorage } from '@/utils/local-storage.utils';
@@ -28,7 +28,7 @@ export const authSlice = createSlice({
       if (remember) return setLocalStorage(LocalStorageConst.CREDENTIALS, { user, token });
     },
 
-    logOut: (state, action) => {
+    logOut: (state, _) => {
       state.user = null;
       state.token = null;
       state.remember = null;
