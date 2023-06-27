@@ -1,5 +1,5 @@
-type Props = {}
-const TestsPage = (props: Props) => {
+// type Props = {}
+const TestsPage = () => {
   return (
     <div>TestsPage</div>
   )
