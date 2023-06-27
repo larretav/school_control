@@ -1,5 +1,4 @@
 import { HashRouter, Navigate, Route } from "react-router-dom"
-import Counter from "./components/Counter"
 import RoutesWithNotFound from "./components/RoutesWithNotFound"
 import { PrivRoutes, PubRoutes } from "./const/routes.const"
 import AuthRoutes from "./components/AuthRoutes"
