@@ -1,10 +1,11 @@
 import { createTheme, responsiveFontSizes } from "@mui/material";
-import { components, palette, typography } from "./";
+import { components, palette, typography, breakpoints } from "./";
 
 let theme = createTheme({
   typography,
   palette,
-  components
+  components,
+  breakpoints
 });
 
 theme = responsiveFontSizes(theme);

@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom"
 
 // Material
 import { Box} from "@mui/material"
+import Sidebar from "./Sidebar"
 
 // Components
 
@@ -21,7 +22,7 @@ const AuthLayout = () => {
     <>
       <Box sx={{ minHeight: '100vh', display: 'flex' }}>
 
-        {/* <Sidebar /> */}
+        <Sidebar />
 
         <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
 

@@ -2,12 +2,12 @@ import { Box, SxProps } from "@mui/material"
 import { CSSProperties, FC } from "react"
 
 type ImageProps = {
-  src: string
-  alt: string
-  boxFit: 'cover' | 'fill' | 'contain' | 'scale-down' | 'none'
-  width: string | number
-  height: string | number
-  sx: CSSProperties
+  src: string 
+  alt?: string
+  boxFit?: 'cover' | 'fill' | 'contain' | 'scale-down' | 'none'
+  width?: string | number
+  height?: string | number
+  sx?: CSSProperties
 }
 
 const Image: FC<ImageProps> = ({ src, alt, boxFit = 'cover', width = 50, height = 50, sx = {} }) => {
