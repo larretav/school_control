@@ -46,7 +46,7 @@ import {
 } from '@/styles/sidebar-styles';
 
 // Components
-import Image from "./Image";
+// import Image from "./Image";
 
 // Assets
 import DefaultPorfilePhoto from "@/assets/porfile_photo.png";
