@@ -109,7 +109,6 @@ const Sidebar = () => {
 
       <Stack direction="column" justifyContent="center" alignItems="center" spacing={2} className="mt-2 mb-6">
         <Avatar src={DefaultPorfilePhoto} sx={{width: isSidebarOpen ? 150 : null, height: isSidebarOpen ? 150 : null}} />
-        {/* <Image src={DefaultPorfilePhoto} width="80%" height={150} /> */}
         <Fade in={isSidebarOpen} unmountOnExit>
           <Typography variant="body2" fontWeight={400}>Laura Díaz Mantel-chan</Typography>
         </Fade>
