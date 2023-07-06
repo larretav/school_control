@@ -1,4 +1,5 @@
 import { SxProps } from "@mui/material";
+import { grey } from "@mui/material/colors";
 
 export const sidebarHeaderStyle = (isOpen: boolean): SxProps => ({
   pt: 2,
@@ -19,11 +20,15 @@ export const drawerStyle = (isOpen: boolean, mobileMatch: boolean): SxProps => {
 
   return {
     overflowX: 'hidden',
+    '.Mui-selected': {
+      bgcolor: 'rgba(16, 77, 148, 0.5)',
+    },
     '.MuiDrawer-paper': {
       position: 'static',
       width,
+      height: '100vh',
       bgcolor: 'primary.dark',
-      color: 'common.white',
+      color: grey[100],
       overflowX: 'hidden',
       transition: mobileMatch ? 'width 100ms ease-in-out' : 'initial'
     }

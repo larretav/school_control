@@ -2,9 +2,8 @@ import { SxProps } from "@mui/material"
 
 export const toolbarTitle: SxProps = {
   pl: { sm: 4 },
-  fontSize: { xxs: 16, sm: 20 },
   flexGrow: 1,
-  textAlign: { xxs: 'center', sm: 'left' },
+  textAlign: { xs: 'center', sm: 'left' },
 }
 
 export const userMenuStyle: SxProps = {

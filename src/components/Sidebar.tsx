@@ -53,20 +53,21 @@ import DefaultPorfilePhoto from "@/assets/porfile_photo.png";
 
 // Slices | Selects
 import { selectSidebarOpen, setSidebarOpen } from "../redux/features/layout/layoutSlice";
+import { PrivRoutes } from "@/const/routes.const";
 
 
 const Sidebar = () => {
 
   const sidebarMenuOptions = [
-    { route: 'dashboard', title: 'Home', icon: <Home /> },
-    { route: 'students', title: 'Estudiantes', icon: <Groups />, },
-    { route: 'teachers', title: 'Maestros', icon: <People />, },
-    { route: 'subjects', title: 'Asignaturas', icon: <School />, },
-    { route: 'attendance', title: 'Asistencia', icon: <FactCheck /> },
-    { route: 'grades', title: 'Calificaciones', icon: <LocalShipping /> },
-    { route: 'notifications', title: 'Notificaciones', icon: <NotificationImportant /> },
-    { route: 'settings', title: 'Configuración', icon: <Settings /> },
-    { route: 'tests', title: 'Test', icon: <Science /> },
+    { route: PrivRoutes.DASHBOARD, title: 'Home', icon: <Home /> },
+    { route: PrivRoutes.STUDENTS, title: 'Estudiantes', icon: <Groups />, },
+    { route: PrivRoutes.TEACHERS, title: 'Maestros', icon: <People />, },
+    { route: PrivRoutes.SUBJECTS, title: 'Asignaturas', icon: <School />, },
+    { route: PrivRoutes.ATTENDANCES, title: 'Asistencia', icon: <FactCheck /> },
+    { route: PrivRoutes.GRADES, title: 'Calificaciones', icon: <LocalShipping /> },
+    { route: PrivRoutes.NOTIFICATIONS, title: 'Notificaciones', icon: <NotificationImportant /> },
+    { route: PrivRoutes.SETTINGS, title: 'Configuración', icon: <Settings /> },
+    { route: PrivRoutes.TESTS, title: 'Test', icon: <Science /> },
   ]
 
   const theme = useTheme();
@@ -108,7 +109,7 @@ const Sidebar = () => {
       </Stack>
 
       <Stack direction="column" justifyContent="center" alignItems="center" spacing={2} className="mt-2 mb-6">
-        <Avatar src={DefaultPorfilePhoto} sx={{width: isSidebarOpen ? 150 : null, height: isSidebarOpen ? 150 : null}} />
+        <Avatar src={DefaultPorfilePhoto} sx={{ width: isSidebarOpen ? 100 : null, height: isSidebarOpen ? 100 : null }} />
         <Fade in={isSidebarOpen} unmountOnExit>
           <Typography variant="body2" fontWeight={400}>Laura Díaz Mantel-chan</Typography>
         </Fade>
@@ -119,8 +120,9 @@ const Sidebar = () => {
           role="presentation"
           onClick={handleToggleSidebar(false)}
           onKeyDown={handleToggleSidebar(false)}
+          className="overflow-auto "
         >
-          <List sx={sidebarListStyle(isSidebarOpen)} >
+          <List sx={sidebarListStyle(isSidebarOpen)} className="overflow-auto">
             {
               sidebarMenuOptions.map((option) => {
 

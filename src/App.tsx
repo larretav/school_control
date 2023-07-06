@@ -3,7 +3,7 @@ import RoutesWithNotFound from "./components/RoutesWithNotFound"
 import { PrivRoutes, PubRoutes } from "./const/routes.const"
 import AuthRoutes from "./components/AuthRoutes"
 import PrivatePages from "./components/PrivatePages"
-import LoginPage from "./pages/private/LoginPage/LoginPage"
+import LoginPage from "@/pages/public/LoginPage/LoginPage"
 
 function App() {
 

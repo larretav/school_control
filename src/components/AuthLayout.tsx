@@ -3,8 +3,9 @@ import { Outlet } from "react-router-dom"
 
 
 // Material
-import { Box} from "@mui/material"
+import { Box, SxProps } from "@mui/material"
 import Sidebar from "./Sidebar"
+import Header from "./Header"
 
 // Components
 
@@ -15,6 +16,14 @@ import Sidebar from "./Sidebar"
 
 // Services
 
+const outletStyles: SxProps = {
+  height: {xs: 'calc(100vh - 48px)', sm: '100vh'},
+  py: 4,
+  px: { xs: 1.5, sm: 4 },
+  boxSizing: 'border-box',
+  overflowY: 'auto',
+}
+
 
 const AuthLayout = () => {
 
@@ -23,10 +32,10 @@ const AuthLayout = () => {
       <Box sx={{ minHeight: '100vh', display: 'flex' }}>
 
         <Sidebar />
-
-        <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-
-          <Box sx={{ height: '100vh', py: 4, px: { xxs: 1.5, sm: 4 }, boxSizing: 'border-box', overflowY: 'auto' }}>
+        
+        <Box className="w-full flex flex-col" >
+          <Header />
+          <Box sx={outletStyles}>
             <Outlet />
           </Box>
         </Box>

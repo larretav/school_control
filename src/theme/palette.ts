@@ -40,6 +40,18 @@ declare module '@mui/material/TextField' {
   }
 }
 
+declare module '@mui/material/SvgIcon' {
+  interface SvgIconPropsColorOverrides {
+    white: true;
+    customGrey: true;
+    teal: true;
+    purple: true;
+    esmerald: true;
+  }
+}
+
+
+
 export const palette = {
 
   primary: {

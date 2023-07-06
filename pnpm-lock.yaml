@@ -11,9 +11,9 @@ dependencies:
   '@emotion/styled':
     specifier: ^11.11.0
     version: 11.11.0(@emotion/react@11.11.0)(@types/react@18.0.28)(react@18.2.0)
-  '@fontsource/roboto':
-    specifier: ^5.0.1
-    version: 5.0.1
+  '@fontsource/montserrat':
+    specifier: ^5.0.4
+    version: 5.0.4
   '@mui/icons-material':
     specifier: ^5.11.16
     version: 5.11.16(@mui/material@5.13.2)(@types/react@18.0.28)(react@18.2.0)
@@ -490,8 +490,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@fontsource/roboto@5.0.1:
-    resolution: {integrity: sha512-pWF64nF35Tfoh2kWgOuJYEFTLkpn+O3/GIR//u1MGD9b1yR+UBwYKXmcNx9CRyNPjMdWjkdN9GKDHhaWZRYbnw==}
+  /@fontsource/montserrat@5.0.4:
+    resolution: {integrity: sha512-iCXJ8pzvq9nQTZZ2O9f+Ag0ihDA9OJqDoydjboCFszhy3l4BkXYRl39aOcB4rQLQ7YYv641M/eeX4A6PNZdvUA==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.8:
