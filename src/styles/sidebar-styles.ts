@@ -20,9 +20,6 @@ export const drawerStyle = (isOpen: boolean, mobileMatch: boolean): SxProps => {
 
   return {
     overflowX: 'hidden',
-    '.Mui-selected': {
-      bgcolor: 'rgba(16, 77, 148, 0.5)',
-    },
     '.MuiDrawer-paper': {
       position: 'static',
       width,
@@ -36,7 +33,10 @@ export const drawerStyle = (isOpen: boolean, mobileMatch: boolean): SxProps => {
 }
 
 export const sidebarListStyle = (isOpen: boolean): SxProps => ({
-  px: isOpen ? 2 : 1
+  px: isOpen ? 2 : 1,
+  ' .Mui-selected': {
+    bgcolor: 'rgba(16, 77, 148, 0.5)',
+  },
 })
 
 export const listItemButtonStyle = {
@@ -65,7 +65,7 @@ export const listItemIconStyle = (isOpen: boolean, isSelected: boolean): SxProps
   minWidth: '28px',
   pr: isOpen ? 2 : 0,
   color: 'grey.100',
-  justifyContent: 'center',
+  justifyContent: 'center'
 })
 
 export const sublistItemIconStyle = (isOpen: boolean, isSelected: boolean): SxProps => ({
