@@ -19,7 +19,7 @@ const ButtonCard: FC<TypeButtonCardProps> = ({ icon, title, route }) => {
   return (
     <ButtonBase
       onClick={handleClick}
-      className="w-full rounded-3xl box-border"
+      className="w-full rounded-3xl box-border bg-white"
     >
       <Stack justifyContent="center" alignItems="center" spacing={3} sx={{ color: 'primary.main', boxShadow: `0 4px 20px -2px rgba(0,0,0,0.25)` }} className="w-full p-6 rounded-3xl box-border">
         {icon}

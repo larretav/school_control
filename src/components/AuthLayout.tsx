@@ -6,6 +6,7 @@ import { Outlet } from "react-router-dom"
 import { Box, SxProps } from "@mui/material"
 import Sidebar from "./Sidebar"
 import Header from "./Header"
+import { blueGrey } from "@mui/material/colors"
 
 // Components
 
@@ -20,6 +21,7 @@ const outletStyles: SxProps = {
   height: {xs: 'calc(100vh - 48px)', sm: '100vh'},
   py: 4,
   px: { xs: 1.5, sm: 4 },
+  bgcolor: blueGrey[50],
   boxSizing: 'border-box',
   overflowY: 'auto',
 }

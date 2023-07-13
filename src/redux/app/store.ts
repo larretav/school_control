@@ -2,13 +2,17 @@ import { configureStore } from "@reduxjs/toolkit";
 import  counterReducer from "../features/counter/counterSlice";
 import authReducer from "../features/auth/authSlice";
 import layoutReducer from "../features/layout/layoutSlice";
+import { emptyApi } from "./services/api";
 
 export const store = configureStore({
   reducer: {
+    [emptyApi.reducerPath]: emptyApi.reducer,
+
     auth: authReducer,
     counter: counterReducer,
     layout: layoutReducer
-  }
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(emptyApi.middleware)
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

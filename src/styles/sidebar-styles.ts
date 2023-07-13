@@ -14,7 +14,7 @@ export const sidebarHeaderStyle = (isOpen: boolean): SxProps => ({
 
 export const drawerStyle = (isOpen: boolean, mobileMatch: boolean): SxProps => {
 
-  const width = !mobileMatch
+  const width = mobileMatch
     ? isOpen ? 230 : 0
     : isOpen ? 230 : 60
 
@@ -27,27 +27,30 @@ export const drawerStyle = (isOpen: boolean, mobileMatch: boolean): SxProps => {
       bgcolor: 'primary.dark',
       color: grey[100],
       overflowX: 'hidden',
-      transition: mobileMatch ? 'width 100ms ease-in-out' : 'initial'
+      transition: !mobileMatch ? 'width 100ms ease-in-out' : 'initial'
     }
   };
 }
 
 export const sidebarListStyle = (isOpen: boolean): SxProps => ({
   px: isOpen ? 2 : 1,
-  ' .Mui-selected': {
-    bgcolor: 'rgba(16, 77, 148, 0.5)',
-  },
+  
 })
 
-export const listItemButtonStyle = {
+export const listItemButtonStyle: SxProps = {
   my: 0.5,
   py: 1,
   justifyContent: 'center',
   alignItems: 'center',
   borderRadius: 2,
   '&:hover': {
-    bgcolor: '#ffffff18'
-  }
+    bgcolor: 'rgba(255, 255, 255, 0.08)'
+  },
+  '&.Mui-selected, &.Mui-selected:hover': {
+    bgcolor: 'common.white',
+    color: 'grey.600',
+    fontWeight: '700',
+  },
 }
 
 export const sidebarSubmenuListStyle = (isOpen: boolean): SxProps => ({
@@ -64,7 +67,7 @@ export const sidebarSubmenuListStyle = (isOpen: boolean): SxProps => ({
 export const listItemIconStyle = (isOpen: boolean, isSelected: boolean): SxProps => ({
   minWidth: '28px',
   pr: isOpen ? 2 : 0,
-  color: 'grey.100',
+  color: isSelected ? 'primary.dark' : 'grey.100',
   justifyContent: 'center'
 })
 

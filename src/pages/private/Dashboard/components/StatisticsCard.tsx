@@ -11,7 +11,7 @@ type Props = {
 
 const StatisticsCard: FC<Props> = ({ title = '', value, icon, color }) => {
   return (
-    <Stack spacing={4} sx={{boxShadow: `0 4px 20px -2px rgba(0,0,0,0.25)` }} className="p-6 rounded-3xl box-border">
+    <Stack spacing={4} sx={{boxShadow: `0 4px 20px -2px rgba(0,0,0,0.25)` }} className="p-6 rounded-3xl box-border bg-white">
       <Typography variant="h6" color={blueGrey[700]} fontWeight={600}>{title.toUpperCase()}</Typography>
       <Stack direction="row"  alignItems="center" spacing={5}>
         <Box className="grid place-items-center" sx={{width: 70, height: 70, borderRadius: 4, bgcolor: color[500], color: 'common.white', boxShadow: `0 3px 15px -3px ${color[400]}` }}>

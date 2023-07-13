@@ -53,7 +53,7 @@ import DefaultPorfilePhoto from "@/assets/porfile_photo.png";
 
 // Slices | Selects
 import { selectSidebarOpen, setSidebarOpen } from "../redux/features/layout/layoutSlice";
-import { PrivRoutes } from "@/const/routes.const";
+import { PrivRoutes, PubRoutes } from "@/const/routes.const";
 
 
 const Sidebar = () => {
@@ -71,7 +71,7 @@ const Sidebar = () => {
   ]
 
   const theme = useTheme();
-  const mobileMatch = useMediaQuery(theme.breakpoints.up('sm'));
+  const mobileMatch = useMediaQuery(theme.breakpoints.down('sm'));
 
   const isSidebarOpen = useAppSelector(selectSidebarOpen);
 
@@ -80,13 +80,16 @@ const Sidebar = () => {
   const dispatch = useAppDispatch();
 
   const handleListItemClick = (route: string) => () => {
+    if (mobileMatch)
+      dispatch(setSidebarOpen(false));
     navigate(route);
   }
 
   const handleToggleSidebar = (open: boolean) => (e: any) => {
 
-    if (e && e.type === 'keydown' && (e.key === 'Tab' || e.key === 'Shift')) return;
+    if (e.type === 'keydown' && (e.key === 'Tab' || e.key === 'Shift')) return;
 
+    console.log(open);
     dispatch(setSidebarOpen(open));
   }
 
@@ -94,7 +97,7 @@ const Sidebar = () => {
     <Drawer
       key="drawer-sidebar"
       id="drawer-sidebar"
-      variant={!mobileMatch ? 'temporary' : 'permanent'}
+      variant={mobileMatch ? 'temporary' : 'permanent'}
       open={isSidebarOpen}
       onClose={handleToggleSidebar(false)}
       sx={drawerStyle(isSidebarOpen, mobileMatch)}
@@ -118,8 +121,8 @@ const Sidebar = () => {
       {
         <Box
           role="presentation"
-          onClick={handleToggleSidebar(false)}
-          onKeyDown={handleToggleSidebar(false)}
+          // onClick={handleToggleSidebar(false)}
+          // onKeyDown={handleToggleSidebar(false)}
           className="overflow-auto "
         >
           <List sx={sidebarListStyle(isSidebarOpen)} className="overflow-auto">
@@ -145,6 +148,12 @@ const Sidebar = () => {
         </Box>
       }
       <Box flexGrow={1} />
+      <ListItemButton sx={listItemButtonStyle} onClick={handleListItemClick(PubRoutes.LOGIN)}>
+        <ListItemIcon ></ListItemIcon>
+        {
+          isSidebarOpen && <ListItemText primary="Cerrar sesión" />
+        }
+      </ListItemButton>
       <Typography component="div" variant="body1" textAlign={isSidebarOpen ? 'right' : 'center'} p={1} >v1.0.0</Typography>
     </Drawer>
   )
