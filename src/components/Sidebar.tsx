@@ -16,7 +16,8 @@ import {
   Typography,
   Stack,
   Fade,
-  Avatar
+  Avatar,
+  Collapse
 } from "@mui/material"
 
 // Icons
@@ -31,6 +32,7 @@ import {
   NotificationImportant,
   Home,
   Science,
+  Logout,
 } from "@mui/icons-material";
 
 // Theme
@@ -54,6 +56,7 @@ import DefaultPorfilePhoto from "@/assets/porfile_photo.png";
 // Slices | Selects
 import { selectSidebarOpen, setSidebarOpen } from "../redux/features/layout/layoutSlice";
 import { PrivRoutes, PubRoutes } from "@/const/routes.const";
+import { selectUserData } from "@/redux/features/auth/authSlice";
 
 
 const Sidebar = () => {
@@ -78,6 +81,7 @@ const Sidebar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const userData = useAppSelector(selectUserData);
 
   const handleListItemClick = (route: string) => () => {
     if (mobileMatch)
@@ -114,7 +118,7 @@ const Sidebar = () => {
       <Stack direction="column" justifyContent="center" alignItems="center" spacing={2} className="mt-2 mb-6">
         <Avatar src={DefaultPorfilePhoto} sx={{ width: isSidebarOpen ? 100 : null, height: isSidebarOpen ? 100 : null }} />
         <Fade in={isSidebarOpen} unmountOnExit>
-          <Typography variant="body2" fontWeight={400}>Laura Díaz Mantel-chan</Typography>
+          <Typography variant="body2" fontWeight={400}>{userData.user}</Typography>
         </Fade>
       </Stack>
 
@@ -123,7 +127,7 @@ const Sidebar = () => {
           role="presentation"
           // onClick={handleToggleSidebar(false)}
           // onKeyDown={handleToggleSidebar(false)}
-          className="overflow-auto "
+          className="overflow-auto"
         >
           <List sx={sidebarListStyle(isSidebarOpen)} className="overflow-auto">
             {
@@ -132,28 +136,37 @@ const Sidebar = () => {
                 const isSelected = pathname.indexOf(option.route) != -1;
 
                 return (
-                  <Box key={option.route}>
-                    <ListItemButton selected={isSelected} sx={listItemButtonStyle} onClick={handleListItemClick(option.route)}>
-                      <ListItemIcon sx={listItemIconStyle(isSidebarOpen, isSelected)}>{option.icon}</ListItemIcon>
-                      {
-                        isSidebarOpen && <ListItemText primary={option.title} />
-                      }
-                    </ListItemButton>
+                  <ListItemButton key={option.route} selected={isSelected} sx={listItemButtonStyle} onClick={handleListItemClick(option.route)}>
+                    <ListItemIcon sx={listItemIconStyle(isSidebarOpen, isSelected)}>{option.icon}</ListItemIcon>
 
-                  </Box>
+
+                    <ListItemText primary={
+                      <Collapse in={isSidebarOpen} timeout={{ enter: 400, exit: 0 }} orientation="horizontal" unmountOnExit>
+                        <Typography variant="body1">{option.title}</Typography>
+                      </Collapse>
+                    } />
+                  </ListItemButton>
+
                 )
               })
             }
+
           </List>
         </Box>
       }
       <Box flexGrow={1} />
-      <ListItemButton sx={listItemButtonStyle} onClick={handleListItemClick(PubRoutes.LOGIN)}>
-        <ListItemIcon ></ListItemIcon>
-        {
-          isSidebarOpen && <ListItemText primary="Cerrar sesión" />
-        }
-      </ListItemButton>
+      <List sx={sidebarListStyle(isSidebarOpen)} className="overflow-hidden">
+
+        <ListItemButton sx={listItemButtonStyle} onClick={handleListItemClick(PubRoutes.LOGIN)}>
+          <ListItemIcon sx={listItemIconStyle(isSidebarOpen, false)} ><Logout /></ListItemIcon>
+
+          <ListItemText primary={
+            <Collapse in={isSidebarOpen} timeout={{ enter: 400, exit: 0 }} orientation="horizontal" unmountOnExit>
+              <Typography variant="body1">Cerrar sesión</Typography>
+            </Collapse>
+          } />
+        </ListItemButton>
+      </List>
       <Typography component="div" variant="body1" textAlign={isSidebarOpen ? 'right' : 'center'} p={1} >v1.0.0</Typography>
     </Drawer>
   )

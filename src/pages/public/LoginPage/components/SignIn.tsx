@@ -6,7 +6,6 @@ import { getSignInValidator } from "../formik/sign-in.formik";
 import { ISignIn } from "@/interfaces/sign-in-interface";
 import jwt_decode from "jwt-decode";
 import { useFormik } from "formik";
-import { FormEvent } from "react";
 import { setCredentials } from "@/redux/features/auth/authSlice";
 import { useAppDispatch } from "@/redux/app/hooks";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +26,8 @@ const SignIn = () => {
 
   const handleSubmit = async (values: ISignIn) => {
 
-    let decodeToken;
+    let decodedToken = {};
+    let token = {};
 
     try {
       // const credentials = {
@@ -41,18 +41,25 @@ const SignIn = () => {
         "pass": "abc12345"
       }
       const tokenResp = await loginUser(cred).unwrap();
-      decodeToken = jwt_decode(tokenResp?.access_token);
+      token = tokenResp?.access_token;
+      decodedToken = jwt_decode(tokenResp?.access_token);
 
 
       // dispatch(setCredentials({ user, token, remember }));
 
       // navigate(`/${PrivatesRoutes.AUTH}`, {replace: true});
 
-    } catch (error:any) {
-      decodeToken = jwt_decode(error?.access_token);
+    } catch (error: any) {
+      token = error?.access_token;
+      decodedToken = jwt_decode(error?.access_token);
     }
 
-    dispatch(setCredentials({ user: values.username, token: decodeToken, remember: values.remember }));
+    token = { ...decodedToken, token }
+    
+    // console.log(token)
+
+
+    dispatch(setCredentials({ user: values.username, tokenData: token, remember: values.remember }));
 
     navigate(`/${PrivRoutes.AUTH}`, {replace: true});
   }
@@ -76,7 +83,7 @@ const SignIn = () => {
   }
 
   const signinContainer: SxProps = {
-    width: { xs: '100%', md: '50%', xl: '30%' },
+    width: { xs: '100%', md: '35%', xl: '30%' },
     height: { xs: '100%', md: 'auto' },
     position: 'relative',
     bgcolor: 'grey.100'
@@ -98,8 +105,9 @@ const SignIn = () => {
       <Box className="w-28 h-28 bg-white opacity-10 absolute rounded-full top-40 left-8" />
       <Box className="w-28 h-28 bg-white opacity-10 absolute rounded-full top-40 right-2" />
 
-      <Stack justifyContent="center" alignItems="center" spacing={4} className="py-10 box-border">
-        <PersonPin sx={{ color: 'common.white', fontSize: 130, zIndex: 1 }} />
+      <Stack justifyContent="center" alignItems="center" spacing={2} className="py-5 box-border">
+        <Typography variant="h6" textAlign="center" className="p-0 m-0 z-10 text-white uppercase">Sistema de control escolar</Typography>
+        <PersonPin sx={{ color: 'common.white', fontSize: 100, zIndex: 1 }} />
         <Stack component="form" noValidate autoComplete="off" onSubmit={formik.handleSubmit} spacing={3} sx={signinForm} className="rounded-3xl shadow-xl bg-white">
           <Typography variant="h6" textAlign="center">Iniciar sesión</Typography>
           <TextField

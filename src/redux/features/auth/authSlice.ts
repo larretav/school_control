@@ -1,16 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { LocalStorageConst } from '@/const/local-storage.const';
 import { RootState } from '@/redux/app/store';
 import { removeLocalStorage, setLocalStorage, getLocalStorage } from '@/utils/local-storage.utils';
 
 interface IAuth {
   user: string,
+  name: string,
+  role: string,
   token: string,
   remember: boolean
 }
 
 const initialState: IAuth = {
   user: '',
+  name: '',
+  role: '',
   token: '',
   remember: false
 }
@@ -21,11 +25,13 @@ export const authSlice = createSlice({
   reducers: {
 
     setCredentials: (state, action) => {
-      const { user, token, remember } = action.payload;
+      const { user, tokenData, remember } = action.payload;
       state.user = user;
-      state.token = token;
+      state.name = tokenData.user;
+      state.role = tokenData.role;
+      state.token = tokenData.token;
 
-      if (remember) return setLocalStorage(LocalStorageConst.CREDENTIALS, { user, token });
+      if (remember) return setLocalStorage(LocalStorageConst.CREDENTIALS, { user, ...tokenData });
     },
 
     logOut: (state, _) => {
@@ -42,5 +48,7 @@ export const authSlice = createSlice({
 export const { setCredentials, logOut } = authSlice.actions;
 
 export const selectAuth = (state: RootState) => state.auth;
+
+export const selectUserData = (state: RootState) => state.auth.token;
 
 export default authSlice.reducer;
