@@ -50,6 +50,12 @@ declare module '@mui/material/SvgIcon' {
   }
 }
 
+declare module '@mui/material/Fab' {
+  interface FabPropsSizeOverrides {
+    smallest: true
+  }
+}
+
 
 
 export const palette = {

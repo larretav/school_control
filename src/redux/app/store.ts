@@ -1,16 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import  counterReducer from "../features/counter/counterSlice";
+import { emptyApi } from "./services/api";
+
 import authReducer from "../features/auth/authSlice";
 import layoutReducer from "../features/layout/layoutSlice";
-import { emptyApi } from "./services/api";
+import loginReducer from "../features/login/loginSlice";
 
 export const store = configureStore({
   reducer: {
     [emptyApi.reducerPath]: emptyApi.reducer,
 
     auth: authReducer,
-    counter: counterReducer,
-    layout: layoutReducer
+    layout: layoutReducer,
+    login: loginReducer 
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(emptyApi.middleware)
 })

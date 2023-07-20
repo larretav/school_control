@@ -54,6 +54,7 @@ a {
 }
 
 a:hover {
+  cursor: pointer;
   background-color: #151b4e10;
   border-radius: 15px;
   padding-left: 5px;

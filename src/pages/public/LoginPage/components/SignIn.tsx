@@ -1,6 +1,6 @@
 import { useLoginUserMutation } from "@/redux/app/services/auth.service";
 import { Lock, Person, PersonPin } from "@mui/icons-material";
-import { Box, Button, Checkbox, FormControlLabel, InputAdornment, Stack, SxProps, TextField, Typography } from "@mui/material";
+import { Box, Button, Checkbox, FormControlLabel, InputAdornment, Stack, TextField, Typography } from "@mui/material";
 // import { ChangeEvent,  useState } from "react";
 import { getSignInValidator } from "../formik/sign-in.formik";
 import { ISignIn } from "@/interfaces/sign-in-interface";
@@ -10,6 +10,8 @@ import { setCredentials } from "@/redux/features/auth/authSlice";
 import { useAppDispatch } from "@/redux/app/hooks";
 import { useNavigate } from "react-router-dom";
 import { PrivRoutes } from "@/const/routes.const";
+import { signinContainer, signinForm } from "./styles/common.style";
+import { setToggleForm } from "@/redux/features/login/loginSlice";
 
 const SignIn = () => {
 
@@ -20,9 +22,9 @@ const SignIn = () => {
   // const handleChangePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
 
   const dispatch = useAppDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const [loginUser, { isLoading }] = useLoginUserMutation();
+  const [loginUser] = useLoginUserMutation();
 
   const handleSubmit = async (values: ISignIn) => {
 
@@ -66,6 +68,8 @@ const SignIn = () => {
 
   const formik = useFormik(getSignInValidator(handleSubmit));
 
+  const handleClickNewAcount = () => dispatch(setToggleForm());
+
   const startIconUser = {
     startAdornment: (
       <InputAdornment position="start">
@@ -82,18 +86,6 @@ const SignIn = () => {
     ),
   }
 
-  const signinContainer: SxProps = {
-    width: { xs: '100%', md: '35%', xl: '30%' },
-    height: { xs: '100%', md: 'auto' },
-    position: 'relative',
-    bgcolor: 'grey.100'
-  }
-
-  const signinForm: SxProps = {
-    py: { xs: 3 },
-    px: { xs: 5, md: 6 },
-    zIndex: 2
-  }
 
   return (
     <Box sx={signinContainer} className="shadow-none md:shadow-2xl rounded-none md:rounded-3xl">
@@ -106,10 +98,10 @@ const SignIn = () => {
       <Box className="w-28 h-28 bg-white opacity-10 absolute rounded-full top-40 right-2" />
 
       <Stack justifyContent="center" alignItems="center" spacing={2} className="py-5 box-border">
-        <Typography variant="h6" textAlign="center" className="p-0 m-0 z-10 text-white uppercase">Sistema de control escolar</Typography>
+        <Typography variant="h5" textAlign="center" fontWeight={300}  className="p-0 m-0 z-10 text-white uppercase">Sistema de control escolar</Typography>
         <PersonPin sx={{ color: 'common.white', fontSize: 100, zIndex: 1 }} />
         <Stack component="form" noValidate autoComplete="off" onSubmit={formik.handleSubmit} spacing={3} sx={signinForm} className="rounded-3xl shadow-xl bg-white">
-          <Typography variant="h6" textAlign="center">Iniciar sesión</Typography>
+          <Typography variant="h5" textAlign="center" fontWeight={300} >Iniciar sesión</Typography>
           <TextField
             id="username"
             label="Usuario *"
@@ -152,7 +144,14 @@ const SignIn = () => {
             Iniciar Sesión
           </Button>
         </Stack>
-        <Typography variant="body1" className="pt-4" >Crear una nueva cuenta</Typography>
+
+        <Button
+          variant="text"
+          className="py-0"
+          onClick={handleClickNewAcount}
+        >
+          Crear una nueva cuenta
+        </Button>
 
       </Stack>
 

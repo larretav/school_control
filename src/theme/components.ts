@@ -33,6 +33,16 @@ export const components: Components<Omit<Theme, "components">> = {
     }
   },
   MuiFab: {
+    variants: [
+      {
+        props: { variant: 'circular', size: 'smallest' },
+        style: {
+          width: '30px',
+          height: '30px',
+          minHeight: '26px'
+        }
+      }
+    ],
     styleOverrides: {
       root: {
         boxShadow: '0px',
