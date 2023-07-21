@@ -1,7 +1,7 @@
 export interface FileObj {
   name: string;
   type: string;
-  size: string;
+  size: number;
   lastModified: number;
   lastModifiedDate: string;
   urlFile: string;

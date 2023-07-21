@@ -1,3 +1,4 @@
+import { FileObj } from '@/interfaces/image-avatar.interface';
 import * as Yup from 'yup';
 
 
@@ -19,7 +20,7 @@ export const getSignUpValidator = (onSubmit: any) => ({
     age: 18,
     gender: '',
     email: '',
-    image: undefined,
+    image: null,
   },
   validationSchema: Yup.object({
     username: Yup.string()
@@ -42,9 +43,9 @@ export const getSignUpValidator = (onSubmit: any) => ({
     image: Yup.mixed()
       .required('La imagen es obligatoria').
       test('fileFormat', 'Solo se permiten imagenes.',
-        (value: any) => value && SUPPORTED_FORMATS.includes(value?.type))
+        (value) => value && SUPPORTED_FORMATS.includes((value as FileObj).type))
       .test('fileSize', 'El tamaño máximo de la imagen debe ser de 5MB',
-        (value: any) => value && value?.size <= FILE_SIZE)
+        (value) => value && (value as FileObj).size <= FILE_SIZE)
   }),
   onSubmit: onSubmit
 });

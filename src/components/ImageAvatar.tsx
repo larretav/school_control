@@ -37,7 +37,7 @@ const ImageAvatar: React.FC<ImageFieldProps> = ({
     const fileObj: FileObj = {
       name: file.name,
       type: file.type,
-      size: (file.size / 1024).toFixed(2),
+      size: +(file.size / 1024).toFixed(2),
       lastModified: file.lastModified,
       lastModifiedDate: new Date(file.lastModified).toLocaleString(),
       urlFile: fileBase64
