@@ -1,5 +1,14 @@
 import * as Yup from 'yup';
 
+
+const FILE_SIZE = 5 * 1024;
+  const SUPPORTED_FORMATS = [
+    "image/jpg",
+    "image/jpeg",
+    "image/gif",
+    "image/png"
+];
+  
 export const getSignUpValidator = (onSubmit: any) => ({
   initialValues: {
     username: '',
@@ -7,9 +16,10 @@ export const getSignUpValidator = (onSubmit: any) => ({
     passwordConfirm: '',
     firstName: '',
     lastName: '',
-    age: 0,
+    age: 18,
     gender: '',
     email: '',
+    image: undefined,
   },
   validationSchema: Yup.object({
     username: Yup.string()
@@ -29,6 +39,12 @@ export const getSignUpValidator = (onSubmit: any) => ({
     email: Yup.string()
       .email('Correo no válido')
       .required('El correo electrónico es obligatorio'),
+    image: Yup.mixed()
+      .required('La imagen es obligatoria').
+      test('fileFormat', 'Solo se permiten imagenes.',
+        (value: any) => value && SUPPORTED_FORMATS.includes(value?.type))
+      .test('fileSize', 'El tamaño máximo de la imagen debe ser de 5MB',
+        (value: any) => value && value?.size <= FILE_SIZE)
   }),
   onSubmit: onSubmit
 });

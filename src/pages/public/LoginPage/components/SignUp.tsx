@@ -18,11 +18,16 @@ import { useAppDispatch } from "@/redux/app/hooks";
 // import { useNavigate } from "react-router-dom";
 import { setToggleForm } from "@/redux/features/login/loginSlice";
 import Center from "@/components/Center";
+import { ChangeEvent, useRef } from "react";
+import ImageAvatar from "@/components/ImageAvatar";
 
 const SignUp = () => {
 
   const dispatch = useAppDispatch();
   // const navigate = useNavigate();
+
+  const inpImageRef = useRef<any>(null);
+
 
   const handleSubmit = async (values: any) => {
     console.log(values);
@@ -38,6 +43,19 @@ const SignUp = () => {
 
   const handleClickNewAcount = () => dispatch(setToggleForm());
 
+  const handleChangeImage = async (e: ChangeEvent<HTMLInputElement>) => {
+    const img = e.target.files?.[0];
+
+    if (!img) return;
+
+    console.log(new Date(img.lastModified));
+    console.log(img);
+
+  }
+
+  const handleClickInput = () => {
+    inpImageRef.current?.click();
+  }
 
 
   return (
@@ -62,12 +80,21 @@ const SignUp = () => {
 
           <Grid item xs={12} md={4}>
             <Center >
+              {/* <ImageAvatar
+                id="image"
+                value={formik.values.image}
+                onChange={(name, value) => formik.setFieldValue(name, value)}
+                onBlur={formik.handleBlur}
+                error={formik.touched.image && !!formik.errors.image}
+                helperText={formik.touched.image && formik.errors.image}
+              /> */}
               <Box position="relative">
-                <ButtonBase className="rounded-full">
-                  <Avatar sx={{ width: 100, height: 100 }} >
-                  </Avatar>
+                <ButtonBase component="label" ref={inpImageRef} className="rounded-full relative">
+                  <input type="file" onChange={handleChangeImage} hidden />
+                  {/* <Avatar src={formik.values.image} sx={{ width: 100, height: 100 }} >
+                  </Avatar> */}
                 </ButtonBase>
-                <Fab color="primary" size="smallest" sx={{ boxShadow: 0, position: 'absolute', bottom: 0, right: 0 }}>
+                <Fab color="primary" size="smallest" onClick={handleClickInput} sx={{ boxShadow: 0, position: 'absolute', bottom: 0, right: 0 }}>
                   <PhotoCamera fontSize="small" />
                 </Fab>
 
@@ -131,20 +158,20 @@ const SignUp = () => {
 
           <Grid item xs={12} md={3}>
             <TextField
-              id="gender"
+              name="gender"
               label="Género"
               variant="standard"
               fullWidth
               select
               value={formik.values.gender}
-              onChange={formik.handleChange}
+              onChange={(formik.handleChange)}
               onBlur={formik.handleBlur}
               helperText={formik.touched.gender && formik.errors.gender}
               error={formik.touched.gender && Boolean(formik.errors.gender)}
             >
-              <MenuItem value="0">Hombre</MenuItem>
-              <MenuItem value="1">Mujer</MenuItem>
-              <MenuItem value="2">No binario</MenuItem>
+              <MenuItem value="Hombre">Hombre</MenuItem>
+              <MenuItem value="Mujer">Mujer</MenuItem>
+              <MenuItem value="No binario">No binario</MenuItem>
             </TextField>
           </Grid>
 
