@@ -12,8 +12,8 @@ interface ImageFieldProps {
   icon?: JSX.Element;
   onChange: (id: string, fileObj: FileObj) => void;
   error?: boolean;
-  onBlur?: () => void;
-  helperText?: string;
+  onBlur?: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  helperText?: React.ReactNode;
 }
 
 const ImageAvatar: React.FC<ImageFieldProps> = ({
@@ -43,7 +43,7 @@ const ImageAvatar: React.FC<ImageFieldProps> = ({
       urlFile: fileBase64
     }
 
-    console.log(file);
+    console.log(fileObj);
 
     onChange(id, fileObj);
   };

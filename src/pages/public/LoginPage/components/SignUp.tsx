@@ -49,7 +49,6 @@ const SignUp = () => {
     if (!img) return;
 
     console.log(new Date(img.lastModified));
-    console.log(img);
 
   }
 
@@ -80,25 +79,14 @@ const SignUp = () => {
 
           <Grid item xs={12} md={4}>
             <Center >
-              {/* <ImageAvatar
+              <ImageAvatar
                 id="image"
                 value={formik.values.image}
                 onChange={(name, value) => formik.setFieldValue(name, value)}
                 onBlur={formik.handleBlur}
                 error={formik.touched.image && !!formik.errors.image}
                 helperText={formik.touched.image && formik.errors.image}
-              /> */}
-              <Box position="relative">
-                <ButtonBase component="label" ref={inpImageRef} className="rounded-full relative">
-                  <input type="file" onChange={handleChangeImage} hidden />
-                  {/* <Avatar src={formik.values.image} sx={{ width: 100, height: 100 }} >
-                  </Avatar> */}
-                </ButtonBase>
-                <Fab color="primary" size="smallest" onClick={handleClickInput} sx={{ boxShadow: 0, position: 'absolute', bottom: 0, right: 0 }}>
-                  <PhotoCamera fontSize="small" />
-                </Fab>
-
-              </Box>
+              />
 
             </Center>
           </Grid>

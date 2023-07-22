@@ -15,7 +15,7 @@ export const signinForm: SxProps = {
 
 export const signupContainer: SxProps = {
   width: { xs: '100%', md: '50%' },
-  height: { xs: '100%', md: 'auto' },
+  height: { xs: '100%', md: '90%' },
   position: 'relative',
   bgcolor: 'grey.100'
 }
