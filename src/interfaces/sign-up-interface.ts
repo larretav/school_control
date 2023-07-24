@@ -7,6 +7,7 @@ export interface ISignUp {
   age: string,
   gender?: string,
   email: string,
+  professionalCareer: string,
   photoUrl?: string,
 
 //   {

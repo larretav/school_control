@@ -104,29 +104,56 @@ const SignUp = () => {
                 helperText={formik.touched.username && formik.errors.username}
                 error={formik.touched.username && Boolean(formik.errors.username)}
               />
+
               <TextField
-                id="firstName"
-                label="Nombre"
+                name="professionalCareer"
+                label="Carrera"
                 variant="standard"
                 fullWidth
-                value={formik.values.firstName}
-                onChange={formik.handleChange}
+                select
+                value={formik.values.professionalCareer}
+                onChange={(formik.handleChange)}
                 onBlur={formik.handleBlur}
-                helperText={formik.touched.firstName && formik.errors.firstName}
-                error={formik.touched.firstName && Boolean(formik.errors.firstName)}
-              />
-              <TextField
-                id="lastName"
-                label="Apellidos"
-                variant="standard"
-                fullWidth
-                value={formik.values.lastName}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                helperText={formik.touched.lastName && formik.errors.lastName}
-                error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-              />
+                helperText={formik.touched.professionalCareer && formik.errors.professionalCareer}
+                error={formik.touched.professionalCareer && Boolean(formik.errors.professionalCareer)}
+              >
+                <MenuItem value="0">Ingeniería Geodesica</MenuItem>
+                <MenuItem value="1">Ingeniería en Software</MenuItem>
+                <MenuItem value="2">Ingeniería Civil</MenuItem>
+              </TextField>
+
+
             </Stack>
+          </Grid>
+
+
+          <Grid item xs={12} md={6}>
+
+            <TextField
+              id="firstName"
+              label="Nombre"
+              variant="standard"
+              fullWidth
+              value={formik.values.firstName}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              helperText={formik.touched.firstName && formik.errors.firstName}
+              error={formik.touched.firstName && Boolean(formik.errors.firstName)}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+
+            <TextField
+              id="lastName"
+              label="Apellidos"
+              variant="standard"
+              fullWidth
+              value={formik.values.lastName}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              helperText={formik.touched.lastName && formik.errors.lastName}
+              error={formik.touched.lastName && Boolean(formik.errors.lastName)}
+            />
           </Grid>
 
           <Grid item xs={12} md={3}>
