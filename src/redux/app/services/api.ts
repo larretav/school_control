@@ -8,11 +8,12 @@ export const emptyApi = createApi({
   reducerPath: 'emptyApi',
 
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api.qapkt1i.cf/',
+    // baseUrl: 'https://api.qapkt1i.cf/',
+    baseUrl: 'http://localhost:8011/',
     prepareHeaders: (headers, {getState }) => {
       
       let token = (getState() as RootState).auth.remember
-        ? JSON.parse(getLocalStorage( LocalStorageConst.CREDENTIALS )).token
+        ? JSON.parse(getLocalStorage( LocalStorageConst.CREDENTIALS )).access_token
         : (getState() as RootState).auth.token
 
       if (token) {

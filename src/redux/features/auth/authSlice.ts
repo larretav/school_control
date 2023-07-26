@@ -2,21 +2,18 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { LocalStorageConst } from '@/const/local-storage.const';
 import { RootState } from '@/redux/app/store';
 import { removeLocalStorage, setLocalStorage, getLocalStorage } from '@/utils/local-storage.utils';
+import { LoginResponse } from '@/interfaces/login-resp';
 
 interface IAuth {
-  user: string,
-  name: string,
-  role: string,
-  token: string,
-  remember: boolean
+  access_token: string,
+  expires_in: number,
+  refresh_token: string,
 }
 
 const initialState: IAuth = {
-  user: '',
-  name: '',
-  role: '',
-  token: '',
-  remember: false
+  access_token: '',
+  expires_in: 0,
+  refresh_token: '',
 }
 
 export const authSlice = createSlice({
@@ -24,14 +21,14 @@ export const authSlice = createSlice({
   initialState: getLocalStorage(LocalStorageConst.CREDENTIALS).length != 0 ? JSON.parse(getLocalStorage(LocalStorageConst.CREDENTIALS)) : initialState,
   reducers: {
 
-    setCredentials: (state, action) => {
-      const { user, tokenData, remember } = action.payload;
-      state.user = user;
-      state.name = tokenData.user;
-      state.role = tokenData.role;
-      state.token = tokenData.token;
+    setCredentials: (state, action: PayloadAction<LoginResponse>) => {
+      const { scope, token_type, ...credentials } = action.payload;
 
-      if (remember) return setLocalStorage(LocalStorageConst.CREDENTIALS, { user, ...tokenData });
+      state.access_token = credentials.access_token;
+      state.expires_in = credentials.expires_in;
+      state.refresh_token = credentials.refresh_token;
+
+      setLocalStorage(LocalStorageConst.CREDENTIALS, credentials)
     },
 
     logOut: (state, _) => {

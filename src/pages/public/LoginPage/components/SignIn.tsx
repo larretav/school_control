@@ -4,7 +4,6 @@ import { Box, Button, Checkbox, FormControlLabel, InputAdornment, Stack, TextFie
 // import { ChangeEvent,  useState } from "react";
 import { getSignInValidator } from "../formik/sign-in.formik";
 import { ISignIn } from "@/interfaces/sign-in-interface";
-import jwt_decode from "jwt-decode";
 import { useFormik } from "formik";
 import { setCredentials } from "@/redux/features/auth/authSlice";
 import { useAppDispatch } from "@/redux/app/hooks";
@@ -12,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { PrivRoutes } from "@/const/routes.const";
 import { signinContainer, signinForm } from "./styles/common.style";
 import { setToggleForm } from "@/redux/features/login/loginSlice";
+import { LoginResponse } from "@/interfaces/login-resp";
 
 const SignIn = () => {
 
@@ -28,42 +28,25 @@ const SignIn = () => {
 
   const handleSubmit = async (values: ISignIn) => {
 
-    let decodedToken = {};
-    let token = {};
-
     try {
-      // const credentials = {
-      //   user: values.username,
-      //   password: values.password,
-      //   correo
-      // }
+      
+      debugger
 
       const cred = {
-        "NombreUsuario": "jorgeFrausto",
-        "pass": "abc12345"
+        username: values.username,
+        password: values.password
       }
-      const tokenResp = await loginUser(cred).unwrap();
-      token = tokenResp?.access_token;
-      decodedToken = jwt_decode(tokenResp?.access_token);
 
+      const tokenResp: LoginResponse = await loginUser(cred).unwrap();
 
-      // dispatch(setCredentials({ user, token, remember }));
+      dispatch(setCredentials(tokenResp));
 
-      // navigate(`/${PrivatesRoutes.AUTH}`, {replace: true});
+      navigate(`/${PrivRoutes.AUTH}`, {replace: true});
 
     } catch (error: any) {
-      token = error?.access_token;
-      decodedToken = jwt_decode(error?.access_token);
+      console.log(error);
     }
 
-    token = { ...decodedToken, token }
-    
-    // console.log(token)
-
-
-    dispatch(setCredentials({ user: values.username, tokenData: token, remember: values.remember }));
-
-    navigate(`/${PrivRoutes.AUTH}`, {replace: true});
   }
 
   const formik = useFormik(getSignInValidator(handleSubmit));
@@ -98,7 +81,7 @@ const SignIn = () => {
       <Box className="w-28 h-28 bg-white opacity-10 absolute rounded-full top-40 right-2" />
 
       <Stack justifyContent="center" alignItems="center" spacing={2} className="py-5 box-border">
-        <Typography variant="h5" textAlign="center" fontWeight={300}  className="p-0 m-0 z-10 text-white uppercase">Sistema de control escolar</Typography>
+        <Typography variant="h5" textAlign="center" fontWeight={300} className="p-0 m-0 z-10 text-white uppercase">Sistema de control escolar</Typography>
         <PersonPin sx={{ color: 'common.white', fontSize: 100, zIndex: 1 }} />
         <Stack component="form" noValidate autoComplete="off" onSubmit={formik.handleSubmit} spacing={3} sx={signinForm} className="rounded-3xl shadow-xl bg-white">
           <Typography variant="h5" textAlign="center" fontWeight={300} >Iniciar sesión</Typography>

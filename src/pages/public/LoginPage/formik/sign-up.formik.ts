@@ -30,7 +30,7 @@ export const getSignUpValidator = (onSubmit: any) => ({
         (value) => value && SUPPORTED_FORMATS.includes((value as FileObj).type))
       .test('fileSize', 'El tamaño máximo de la imagen debe ser de 5MB',
         (value) => value && (value as FileObj).size <= FILE_SIZE),
-    
+
     username: Yup.string()
       .required('La matricula es obligatoria'),
     professionalCareer: Yup.string(),

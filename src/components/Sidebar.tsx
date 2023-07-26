@@ -93,7 +93,6 @@ const Sidebar = () => {
 
     if (e.type === 'keydown' && (e.key === 'Tab' || e.key === 'Shift')) return;
 
-    console.log(open);
     dispatch(setSidebarOpen(open));
   }
 
@@ -118,7 +117,7 @@ const Sidebar = () => {
       <Stack direction="column" justifyContent="center" alignItems="center" spacing={2} className="mt-2 mb-6">
         <Avatar src={DefaultPorfilePhoto} sx={{ width: isSidebarOpen ? 100 : null, height: isSidebarOpen ? 100 : null }} />
         <Fade in={isSidebarOpen} unmountOnExit>
-          <Typography variant="body2" fontWeight={400}>{userData.user}</Typography>
+          <Typography variant="body2" fontWeight={400}>{userData?.user}</Typography>
         </Fade>
       </Stack>
 
