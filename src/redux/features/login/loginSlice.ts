@@ -21,15 +21,14 @@ export const loginSlice = createSlice({
       state.currentForm = !state.currentForm
     },
 
-
-    reset: () => initialState
+    loginReset: () => initialState
   },
 })
 
 export const {
   setToggleForm,
 
-  reset
+  loginReset
 } = loginSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type

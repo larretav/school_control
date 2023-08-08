@@ -55,8 +55,9 @@ import DefaultPorfilePhoto from "@/assets/porfile_photo.png";
 
 // Slices | Selects
 import { selectSidebarOpen, setSidebarOpen } from "../redux/features/layout/layoutSlice";
-import { PrivRoutes, PubRoutes } from "@/const/routes.const";
+import { PrivRoutes } from "@/const/routes.const";
 import { selectUserData } from "@/redux/features/auth/authSlice";
+import { useLogout } from "@/hooks/useLogout";
 
 
 const Sidebar = () => {
@@ -81,7 +82,14 @@ const Sidebar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { logout } = useLogout();
+
   const userData = useAppSelector(selectUserData);
+
+
+  const handleListItemClickLogout = () => {
+    logout();
+  }
 
   const handleListItemClick = (route: string) => () => {
     if (mobileMatch)
@@ -117,7 +125,7 @@ const Sidebar = () => {
       <Stack direction="column" justifyContent="center" alignItems="center" spacing={2} className="mt-2 mb-6">
         <Avatar src={DefaultPorfilePhoto} sx={{ width: isSidebarOpen ? 100 : null, height: isSidebarOpen ? 100 : null }} />
         <Fade in={isSidebarOpen} unmountOnExit>
-          <Typography variant="body2" fontWeight={400}>{userData?.user}</Typography>
+          <Typography variant="body2" fontWeight={400}>{userData}</Typography>
         </Fade>
       </Stack>
 
@@ -156,7 +164,7 @@ const Sidebar = () => {
       <Box flexGrow={1} />
       <List sx={sidebarListStyle(isSidebarOpen)} className="overflow-hidden">
 
-        <ListItemButton sx={listItemButtonStyle} onClick={handleListItemClick(PubRoutes.LOGIN)}>
+        <ListItemButton sx={listItemButtonStyle} onClick={handleListItemClickLogout}>
           <ListItemIcon sx={listItemIconStyle(isSidebarOpen, false)} ><Logout /></ListItemIcon>
 
           <ListItemText primary={

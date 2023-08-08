@@ -38,6 +38,10 @@ declare module '@mui/material/TextField' {
     purple: true;
     esmerald: true;
   }
+
+  interface TextFieldPropsSizeOverrides {
+    smallest: true;
+  }
 }
 
 declare module '@mui/material/SvgIcon' {

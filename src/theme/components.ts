@@ -2,6 +2,21 @@ import '@mui/lab/themeAugmentation';
 import { Components, Theme } from '@mui/material';
 
 export const components: Components<Omit<Theme, "components">> = {
+  MuiTextField: {
+    variants: [
+      {
+        props: {
+          size: 'smallest',
+        },
+        style: {
+          
+          '& .MuiInputBase-input': {
+            padding: '5px 10px'
+          }
+        }
+      }
+    ]
+  },
   MuiButton: {
     defaultProps: {
       variant: 'contained'

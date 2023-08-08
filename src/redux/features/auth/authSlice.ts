@@ -31,14 +31,15 @@ export const authSlice = createSlice({
       setLocalStorage(LocalStorageConst.CREDENTIALS, credentials)
     },
 
-    logOut: (state, _) => {
-      state.user = null;
-      state.token = null;
-      state.remember = null;
+    logOut: (state) => {
+      state.user = '';
+      state.token = 0;
+      state.remember = '';
 
       removeLocalStorage(LocalStorageConst.CREDENTIALS);
 
-    }
+    },
+
   }
 })
 
@@ -46,6 +47,6 @@ export const { setCredentials, logOut } = authSlice.actions;
 
 export const selectAuth = (state: RootState) => state.auth;
 
-export const selectUserData = (state: RootState) => state.auth.token;
+export const selectUserData = (state: RootState) => state.auth.access_token;
 
 export default authSlice.reducer;

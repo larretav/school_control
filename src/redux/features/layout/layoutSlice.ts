@@ -21,14 +21,14 @@ export const layoutSlice = createSlice({
       state.sidebarOpen = action.payload;
     },
 
-    reset: () => initialState
+    layoutReset: () => initialState
   },
 })
 
 export const {
   setSidebarOpen,
 
-  reset
+  layoutReset
 } = layoutSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type

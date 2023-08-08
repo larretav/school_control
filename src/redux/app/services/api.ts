@@ -14,7 +14,7 @@ export const emptyApi = createApi({
       
       let token = (getState() as RootState).auth.remember
         ? JSON.parse(getLocalStorage( LocalStorageConst.CREDENTIALS )).access_token
-        : (getState() as RootState).auth.token
+        : (getState() as RootState).auth.access_token
 
       if (token) {
         headers.set('Authorization', `Bearer ${token}`);
