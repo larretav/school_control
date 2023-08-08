@@ -4,6 +4,7 @@ import { emptyApi } from "./services/api";
 import authReducer from "../features/auth/authSlice";
 import layoutReducer from "../features/layout/layoutSlice";
 import loginReducer from "../features/login/loginSlice";
+import counterReducer from "../features/counter/counterSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
 
     auth: authReducer,
     layout: layoutReducer,
-    login: loginReducer 
+    login: loginReducer,
+    counter: counterReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(emptyApi.middleware)
 })
