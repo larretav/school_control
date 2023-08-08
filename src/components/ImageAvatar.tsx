@@ -1,6 +1,6 @@
 import { FileObj } from '@/interfaces/image-avatar.interface';
 import { fileToBase64 } from '@/utils/base64.utils';
-import { Add, PhotoCamera } from '@mui/icons-material';
+import { PhotoCamera } from '@mui/icons-material';
 import { Avatar, Box,  ButtonBase, Fab, Typography } from '@mui/material';
 import React, { ChangeEvent, useRef } from 'react';
 
