@@ -1,6 +1,5 @@
-import { Box, Grid, MenuItem, Pagination, Stack, SxProps, TextField, TextFieldVariants, Typography } from '@mui/material'
-import { red } from '@mui/material/colors';
-import React, { ChangeEvent, ChangeEventHandler, FC, ReactNode, useState } from 'react'
+import { Box,  MenuItem, Pagination, Stack, SxProps, TextField, TextFieldVariants, Typography } from '@mui/material'
+import { ChangeEvent, FC, ReactNode, useState } from 'react'
 import Center from './Center';
 
 type ComponentPaginatorProps = {

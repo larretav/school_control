@@ -73,7 +73,7 @@ const SignIn = () => {
   return (
     <Box sx={signinContainer} className="shadow-none md:shadow-2xl rounded-none md:rounded-3xl">
 
-      <Box className="w-full h-2/5 bg-blue-800 absolute rounded-none md:rounded-t-3xl " />
+      <Box className="w-full h-2/5 bg-blue-800 absolute rounded-none md:rounded-t-3xl" />
       <Box className="w-24 h-24 bg-white opacity-10 absolute rounded-full top-3 left-5" />
       <Box className="w-28 h-28 bg-white opacity-10 absolute rounded-full top-14 left-44" />
       <Box className="w-20 h-20 bg-white opacity-10 absolute rounded-full top-4 right-8" />

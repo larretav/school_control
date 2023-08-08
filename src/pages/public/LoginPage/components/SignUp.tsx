@@ -1,9 +1,6 @@
 import {
-  Avatar,
   Box,
   Button,
-  ButtonBase,
-  Fab,
   Grid,
   MenuItem,
   Stack,
@@ -11,23 +8,19 @@ import {
   Typography
 } from "@mui/material";
 import { signupContainer, signupForm } from "./styles/common.style";
-import { PersonAddAlt1Rounded, PhotoCamera } from "@mui/icons-material";
+import { PersonAddAlt1Rounded } from "@mui/icons-material";
 import { getSignUpValidator } from "../formik/sign-up.formik";
 import { useFormik } from "formik";
 import { useAppDispatch } from "@/redux/app/hooks";
 // import { useNavigate } from "react-router-dom";
 import { setToggleForm } from "@/redux/features/login/loginSlice";
 import Center from "@/components/Center";
-import { ChangeEvent, useRef } from "react";
 import ImageAvatar from "@/components/ImageAvatar";
 
 const SignUp = () => {
 
   const dispatch = useAppDispatch();
   // const navigate = useNavigate();
-
-  const inpImageRef = useRef<any>(null);
-
 
   const handleSubmit = async (values: any) => {
     console.log(values);
@@ -42,20 +35,6 @@ const SignUp = () => {
   const formik = useFormik(getSignUpValidator(handleSubmit));
 
   const handleClickNewAcount = () => dispatch(setToggleForm());
-
-  const handleChangeImage = async (e: ChangeEvent<HTMLInputElement>) => {
-    const img = e.target.files?.[0];
-
-    if (!img) return;
-
-    console.log(new Date(img.lastModified));
-
-  }
-
-  const handleClickInput = () => {
-    inpImageRef.current?.click();
-  }
-
 
   return (
     <Box sx={signupContainer} className="shadow-none md:shadow-2xl rounded-none md:rounded-3xl">
