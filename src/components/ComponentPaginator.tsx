@@ -21,7 +21,7 @@ const ComponentPaginator: FC<ComponentPaginatorProps> = ({
 }) => {
 
   console.log(children)
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(10)
 
   const handleChangePage = (_: ChangeEvent<unknown>, newPage: number) => {

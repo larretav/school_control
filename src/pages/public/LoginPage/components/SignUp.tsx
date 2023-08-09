@@ -217,6 +217,7 @@ const SignUp = () => {
             <Button
               type="submit"
               variant="contained"
+              color="secondary"
               fullWidth
               className="uppercase"
             >

@@ -9,12 +9,9 @@ const TestsPage = () => {
 
   return (
     <ComponentPaginator title="Paginación prueba" >
-      <Typography>Texto ejemplo</Typography>
-      <Typography>Texto ejemplo</Typography>
-      <Typography>Texto ejemplo</Typography>
-      <Typography>Texto ejemplo</Typography>
-      <Typography>Texto ejemplo</Typography>
-      <Typography>Texto ejemplo</Typography>
+      {
+        [1,2,3,4,5,6,7,8,9].map((item, idx) => <Typography>{`Texto ejemplo ${idx}`}</Typography>)
+      }
     </ComponentPaginator>
   )
 }
