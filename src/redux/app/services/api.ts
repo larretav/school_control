@@ -8,8 +8,8 @@ export const emptyApi = createApi({
   reducerPath: 'emptyApi',
 
   baseQuery: fetchBaseQuery({
-    // baseUrl: 'https://api.qapkt1i.cf/',
-    baseUrl: 'http://localhost:8011/',
+    // baseUrl: 'http://localhost:8011/',
+    baseUrl: 'http://localhost:4000/api',
     prepareHeaders: (headers, {getState }) => {
       
       let token = (getState() as RootState).auth.remember

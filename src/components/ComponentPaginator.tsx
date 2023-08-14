@@ -1,28 +1,29 @@
-import { Box,  MenuItem, Pagination, Stack, SxProps, TextField, TextFieldVariants, Typography } from '@mui/material'
-import { ChangeEvent, FC, ReactNode, useState } from 'react'
+import { Box, Grid, GridProps, MenuItem, Pagination, Stack, SxProps, TextField, TextFieldVariants, Typography } from '@mui/material'
+import React, { ChangeEvent, FC, ReactNode, createElement, useEffect, useState } from 'react'
 import Center from './Center';
 
-type ComponentPaginatorProps = {
-  title: string,
+type GridPaginatorProps = {
+  title?: string,
   itemsPerPageOptions?: number[],
   labelItemsPerPage?: string,
   sx?: SxProps,
   inputVariant?: TextFieldVariants | undefined,
+  gridProps: GridProps,
   children: ReactNode[],
 }
 
-const ComponentPaginator: FC<ComponentPaginatorProps> = ({
-  title = 'Título',
-  itemsPerPageOptions = [2, 10, 25, 50, 100],
+const GridPaginator: FC<GridPaginatorProps> = ({
+  title,
+  itemsPerPageOptions = [10, 25, 50, 100],
   labelItemsPerPage = 'Items por página:',
   sx = {},
   inputVariant = 'outlined',
+  gridProps,
   children
 }) => {
-
-  console.log(children)
-  const [page, setPage] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(10)
+  console.log(children);
+  const [page, setPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(itemsPerPageOptions[0])
 
   const handleChangePage = (_: ChangeEvent<unknown>, newPage: number) => {
     setPage(newPage);
@@ -30,35 +31,50 @@ const ComponentPaginator: FC<ComponentPaginatorProps> = ({
 
   const handleChangeItemsPerPage = (event: ChangeEvent<HTMLInputElement>) => {
     setItemsPerPage(+event.target.value);
-    setPage(0);
+    setPage(1);
   };
 
+  const handleReset = () => {
+    setPage(1);
+    setItemsPerPage(itemsPerPageOptions[0]);
+  }
+
   const getPageCount = () => {
-    let numPages = children?.length / itemsPerPage;
+    let numPages = children.length / itemsPerPage;
     numPages += numPages % 2 == 0 ? 0 : 1
     return Math.trunc(numPages);
   }
 
   const sxStyle: SxProps = {
     width: '100%',
-    p: 2,
+    height: '100%',
+    px: 2,
     bgcolor: 'common.white',
     borderRadius: 3,
+    boxSizing: 'border-box',
     ...sx
   }
 
-  return (
-    <Box sx={sxStyle}>
-      <Box >
-        {title}
-      </Box>
+  useEffect(() => {
+    handleReset()
+  }, [children.length])
 
-      <Box flexGrow={1} overflow="auto">
+
+  return (
+    <Stack direction="column" spacing={2} sx={sxStyle}>
+      {
+        title && <Box>
+          {title}
+        </Box>
+      }
+
+
+
+      <Grid container {...gridProps} flex={1} className='overflow-y-auto overflow-x-hidden'>
         {
           children.slice(page * itemsPerPage, page * itemsPerPage + itemsPerPage)
         }
-      </Box>
-
+      </Grid>
 
       <Stack spacing={1}>
         <Stack direction="row" justifyContent="center" alignItems="center" spacing={0.5}>
@@ -81,6 +97,7 @@ const ComponentPaginator: FC<ComponentPaginatorProps> = ({
           <Pagination
             color="primary"
             size="medium"
+            page={page}
             count={getPageCount()}
             onChange={handleChangePage}
             siblingCount={1}
@@ -88,8 +105,8 @@ const ComponentPaginator: FC<ComponentPaginatorProps> = ({
         </Center>
       </Stack>
 
-    </Box>
+    </Stack>
   )
 }
 
-export default ComponentPaginator
+export default GridPaginator

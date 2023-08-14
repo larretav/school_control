@@ -14,7 +14,7 @@ export const useLogout = () => {
 
   const navigate = useNavigate();
 
-  const [userLogout] = useLogoutUserMutation();
+  const [userLogout, {isUninitialized, isLoading}] = useLogoutUserMutation();
 
   const logout = async () => {
 
@@ -28,7 +28,7 @@ export const useLogout = () => {
       dispatch(loginReset);
   
       dispatch(logOut());
-      navigate(PubRoutes.LOGIN, { replace: true });
+      navigate(`/${PubRoutes.LOGIN}`, { replace: true });
 
     } catch (error) {
       console.log(error);
@@ -37,6 +37,7 @@ export const useLogout = () => {
   }
 
   return {
-    logout
+    logout,
+    isLoading: isLoading
   }
 }

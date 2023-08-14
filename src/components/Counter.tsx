@@ -10,7 +10,7 @@ const Counter = () => {
   const count = useAppSelector(selectCount);
 
   const handleClickIncrement = () => {
-    dispatch(setIncrement())
+    dispatch(setIncrement());
   }
 
   const handleClickDecrement = () => {

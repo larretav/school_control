@@ -5,6 +5,7 @@ import authReducer from "../features/auth/authSlice";
 import layoutReducer from "../features/layout/layoutSlice";
 import loginReducer from "../features/login/loginSlice";
 import counterReducer from "../features/counter/counterSlice";
+import schoolSubjectsReducer from "../features/school_subjects/schoolSubjectsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,9 +14,12 @@ export const store = configureStore({
     auth: authReducer,
     layout: layoutReducer,
     login: loginReducer,
-    counter: counterReducer
+    counter: counterReducer,
+    schoolSubjects: schoolSubjectsReducer
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(emptyApi.middleware)
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false
+  }).concat(emptyApi.middleware)
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
