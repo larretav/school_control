@@ -4,8 +4,8 @@ import { ChangeEvent, ChangeEventHandler, FC, useEffect } from "react"
 import { useLazyGetSchoolSubjectsQuery } from "@/redux/app/services/school-subjects.service"
 import ProgressIndicator from "@/components/ProgressIndicator"
 import { useAppDispatch, useAppSelector } from "@/redux/app/hooks"
-import { selectInpSchoolSubject, selectProfCareerSelected, selectProfessionalCareers, selectSchoolSubjects, setInputProfCarrerSelected, setInputSchoolSubject, setProfessionalCareers, setSchoolSubjects } from "@/redux/features/school_subjects/schoolSubjectsSlice"
-import GridPaginator from "@/components/ComponentPaginator"
+import { selectInpSchoolSubject, selectProfCareerSelected, selectProfessionalCareers, selectSchoolSubjects, selectSchoolSubjectsFilterResults, setInputProfCarrerSelected, setInputSchoolSubject, setProfessionalCareers, setSchoolSubjects } from "@/redux/features/school_subjects/schoolSubjectsSlice"
+import GridPaginator from "@/components/GridPaginator"
 import { School, Search } from "@mui/icons-material"
 import { useLazyGetProfessionalCareerQuery } from "@/redux/app/services/professional-career.service"
 
@@ -14,7 +14,7 @@ type SubjectsPageProps = {}
 const SubjectsPage: FC<SubjectsPageProps> = () => {
 
   const dispatch = useAppDispatch();
-  const schoolSubjects = useAppSelector(selectSchoolSubjects);
+  const schoolSubjects = useAppSelector(selectSchoolSubjectsFilterResults);
   const profCareers = useAppSelector(selectProfessionalCareers);
   // Inputs
   const profCareersSelected = useAppSelector(selectProfCareerSelected);
@@ -97,17 +97,14 @@ const SubjectsPage: FC<SubjectsPageProps> = () => {
           <Grid item xs={12} className="h-full">
             <GridPaginator gridProps={{ spacing: 1 }} sx={{ bgcolor: 'transparent' }} >
               {
-                [1,2,2,1,2,3].map((sSubj, idx) =>
+                schoolSubjects.map((sSubj, idx) =>
                   <Grid key={idx} item xs={12} md={6} lg={3} >
-                    <Box className="h-36 ">
+                    <Box className="h-32 ">
                       <PorfileCard
                         icon={<School color="primary" />}
-                        // title={sSubj.name}
-                        // subtitle={`Semestres: ${sSubj.semester}`}
-                        // extraData={`Carrera: ${sSubj.professionalCareer.name}`}
-                        title="dcsdc"
-                        subtitle="Seemestre"
-                        extraData="Carrera:"
+                        title={sSubj.name}
+                        subtitle={`Semestres: ${sSubj.semester}`}
+                        extraData={`Carrera: ${sSubj.professionalCareer.name}`}
                       />
                     </Box>
                   </Grid>

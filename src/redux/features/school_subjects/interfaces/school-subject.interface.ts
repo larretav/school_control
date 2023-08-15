@@ -5,6 +5,7 @@ import SchoolSubject from "@/models/school-subject.model";
 export interface ISchoolSubjectsState {
   schoolSubjects: SchoolSubject[],
   professionalCareers: ProfessionalCareer[],
+  schoolSubjectsFilterResults: SchoolSubject[],
 
   inpProfCareerSelected: string,
   inpSchoolSubject: string

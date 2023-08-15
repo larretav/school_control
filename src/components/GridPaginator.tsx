@@ -15,13 +15,12 @@ type GridPaginatorProps = {
 const GridPaginator: FC<GridPaginatorProps> = ({
   title,
   itemsPerPageOptions = [10, 25, 50, 100],
-  labelItemsPerPage = 'Items por página:',
+  labelItemsPerPage = 'Elementos por página:',
   sx = {},
   inputVariant = 'outlined',
   gridProps,
   children
 }) => {
-  console.log(children);
   const [page, setPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(itemsPerPageOptions[0])
 
@@ -39,11 +38,7 @@ const GridPaginator: FC<GridPaginatorProps> = ({
     setItemsPerPage(itemsPerPageOptions[0]);
   }
 
-  const getPageCount = () => {
-    let numPages = children.length / itemsPerPage;
-    numPages += numPages % 2 == 0 ? 0 : 1
-    return Math.trunc(numPages);
-  }
+  const getPageCount = () => Math.ceil(children.length / itemsPerPage);
 
   const sxStyle: SxProps = {
     width: '100%',
@@ -59,7 +54,6 @@ const GridPaginator: FC<GridPaginatorProps> = ({
     handleReset()
   }, [children.length])
 
-
   return (
     <Stack direction="column" spacing={2} sx={sxStyle}>
       {
@@ -70,9 +64,9 @@ const GridPaginator: FC<GridPaginatorProps> = ({
 
 
 
-      <Grid container {...gridProps} flex={1} className='overflow-y-auto overflow-x-hidden'>
+      <Grid container {...gridProps} flex={1} className="overflow-y-auto overflow-x-hidden ">
         {
-          children.slice(page * itemsPerPage, page * itemsPerPage + itemsPerPage)
+          children.slice((page - 1) * itemsPerPage, (page - 1) * itemsPerPage + itemsPerPage)
         }
       </Grid>
 

@@ -1,4 +1,4 @@
-import GridPaginator from "@/components/ComponentPaginator"
+import GridPaginator from "@/components/GridPaginator"
 import { Stack, Typography } from "@mui/material"
 
 // type Props = {}
