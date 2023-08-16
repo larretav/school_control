@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { emptyApi } from "./services/api";
+import { emptyApi, emptyApiCloudinary } from "./services/api";
 
 import authReducer from "../features/auth/authSlice";
 import layoutReducer from "../features/layout/layoutSlice";
@@ -19,7 +19,7 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false
-  }).concat(emptyApi.middleware)
+  }).concat(emptyApi.middleware, emptyApiCloudinary.middleware)
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

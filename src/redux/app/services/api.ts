@@ -28,3 +28,24 @@ export const emptyApi = createApi({
   endpoints: () => ({})
   
 });
+
+
+// CLOUDINARY
+export const emptyApiCloudinary = createApi({
+
+  reducerPath: 'emptyApi',
+
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://api.cloudinary.com/v1_1/dwzkbzepk',
+    prepareHeaders: (headers, {getState }) => {
+      
+      
+
+      return headers;
+
+    }
+  }),
+
+  endpoints: () => ({})
+  
+});
