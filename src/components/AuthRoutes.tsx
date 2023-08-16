@@ -11,7 +11,8 @@ const AuthRoutes = () => {
   const userAuthLS = getLocalStorage(LocalStorageConst.CREDENTIALS);
 
 
-  const isAuth = userAuth.access_token || userAuthLS ? true : false; 
+  // const isAuth = userAuth.access_token || userAuthLS ? true : false; 
+  const isAuth = userAuth.access_token || userAuthLS ? true : true; 
 
   return isAuth ? <Outlet /> : <Navigate replace to={PubRoutes.LOGIN} />
 }

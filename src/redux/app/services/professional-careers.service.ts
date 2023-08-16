@@ -3,14 +3,14 @@ import { emptyApi } from "./api";
 import ProfessionalCareer from "@/models/professional-career.model";
 
 
-const apiWithTag = emptyApi.enhanceEndpoints({ addTagTypes: ['ProfessionalCareer'] })
+const apiWithTag = emptyApi.enhanceEndpoints({ addTagTypes: ['ProfessionalCareer', 'ProfessionalCareerByTerm'] })
 
 export const professionalCareerApi = apiWithTag.injectEndpoints({
 
   endpoints: (builder) => ({
     getProfessionalCareer: builder.query<ProfessionalCareer[], void>({
-      query: () => '/professional_careers',
-      // query: () => '/professional-career/list/',
+      // query: () => '/professional_careers',
+      query: () => '/professional-career/list/',
       transformResponse: (response: any[]) => {
         return response.map(profCareer => ProfessionalCareer.fromJson(profCareer))
       },
@@ -22,7 +22,7 @@ export const professionalCareerApi = apiWithTag.injectEndpoints({
       transformResponse: (response: any) => {
         return ProfessionalCareer.fromJson(response);
       },
-      providesTags: ['ProfessionalCareer'],
+      providesTags: ['ProfessionalCareerByTerm'],
     }),
 
   })

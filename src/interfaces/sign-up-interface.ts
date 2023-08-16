@@ -1,3 +1,5 @@
+import { FileObj } from "./image-avatar.interface";
+
 export interface ISignUp {
   username: string,
   password: string,
@@ -7,16 +9,6 @@ export interface ISignUp {
   age: string,
   gender?: string,
   email: string,
-  professionalCareer: string,
-  photoUrl?: string,
-
-//   {
-//     "username": "123123123",
-//     "password": "12345678",
-//     "passwordConfirm": "12345678",
-//     "firstName": "xasxas",
-//     "lastName": "asxasx",
-//     "gender": "",
-//     "email": "asdaw@algo.com"
-// }
+  professionalCareer: number,
+  image: FileObj
 }

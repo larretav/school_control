@@ -16,11 +16,6 @@ import ProgressIndicator from "@/components/ProgressIndicator";
 
 const SignIn = () => {
 
-  // const [username, setUsername] = useState('');
-  // const [password, setPassword] = useState('');
-
-  // const handleChangeUsername = (e: ChangeEvent<HTMLInputElement>) => setUsername(e.target.value);
-  // const handleChangePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();

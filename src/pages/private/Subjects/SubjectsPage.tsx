@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/app/hooks"
 import { selectInpSchoolSubject, selectProfCareerSelected, selectProfessionalCareers, selectSchoolSubjects, selectSchoolSubjectsFilterResults, setInputProfCarrerSelected, setInputSchoolSubject, setProfessionalCareers, setSchoolSubjects } from "@/redux/features/school_subjects/schoolSubjectsSlice"
 import GridPaginator from "@/components/GridPaginator"
 import { School, Search } from "@mui/icons-material"
-import { useLazyGetProfessionalCareerQuery } from "@/redux/app/services/professional-career.service"
+import { useLazyGetProfessionalCareerQuery } from "@/redux/app/services/professional-careers.service"
 
 type SubjectsPageProps = {}
 
@@ -16,6 +16,7 @@ const SubjectsPage: FC<SubjectsPageProps> = () => {
   const dispatch = useAppDispatch();
   const schoolSubjects = useAppSelector(selectSchoolSubjectsFilterResults);
   const profCareers = useAppSelector(selectProfessionalCareers);
+
   // Inputs
   const profCareersSelected = useAppSelector(selectProfCareerSelected);
   const schoolSubject = useAppSelector(selectInpSchoolSubject);

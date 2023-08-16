@@ -8,8 +8,8 @@ export const emptyApi = createApi({
   reducerPath: 'emptyApi',
 
   baseQuery: fetchBaseQuery({
-    // baseUrl: 'http://localhost:8011/',
-    baseUrl: 'http://localhost:4000/api',
+    baseUrl: 'http://localhost:8011/',
+    // baseUrl: 'http://localhost:4000/api',
     prepareHeaders: (headers, {getState }) => {
       
       let token = (getState() as RootState).auth.remember
@@ -33,14 +33,12 @@ export const emptyApi = createApi({
 // CLOUDINARY
 export const emptyApiCloudinary = createApi({
 
-  reducerPath: 'emptyApi',
+  reducerPath: 'emptyApiCloudinary',
 
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://api.cloudinary.com/v1_1/dwzkbzepk',
     prepareHeaders: (headers, {getState }) => {
       
-      
-
       return headers;
 
     }

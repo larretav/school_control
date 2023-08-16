@@ -2,14 +2,14 @@ import SchoolSubject from "@/models/school-subject.model";
 import { emptyApi } from "./api";
 
 
-const apiWithTag = emptyApi.enhanceEndpoints({ addTagTypes: ['SchoolSubjects'] })
+const apiWithTag = emptyApi.enhanceEndpoints({ addTagTypes: ['SchoolSubjects', 'SchoolSubjectsById'] })
 
 export const schoolSubjectsApi = apiWithTag.injectEndpoints({
 
   endpoints: (builder) => ({
     getSchoolSubjects: builder.query<SchoolSubject[], void>({
-      query: () => '/school_subjects',
-      // query: () => '/school-subject/list/',
+      // query: () => '/school_subjects',
+      query: () => '/school-subject/list/',
       transformResponse: (response: any[]) => {
         return response.map(schoolSubj => SchoolSubject.fromJson(schoolSubj))
       },
@@ -21,7 +21,7 @@ export const schoolSubjectsApi = apiWithTag.injectEndpoints({
       transformResponse: (response: any) => {
         return SchoolSubject.fromJson(response);
       },
-      providesTags: ['SchoolSubjects'],
+      providesTags: ['SchoolSubjectsById'],
     }),
 
   })
