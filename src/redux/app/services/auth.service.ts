@@ -1,3 +1,4 @@
+import { IStudentBody } from "@/interfaces/student-body.interface";
 import { emptyApi } from "./api";
 
 export const authApi = emptyApi.injectEndpoints({
@@ -23,6 +24,14 @@ export const authApi = emptyApi.injectEndpoints({
       // }
     }),
 
+    registerStudent: builder.mutation({
+      query: (body: IStudentBody) => ({
+        url: '/auth/register/students/',
+        method: 'POST',
+        body
+      }),
+    }),
+      
     logoutUser: builder.mutation({
       query: (access_token: string) => ({
         url: '/auth/logout/',
@@ -36,4 +45,4 @@ export const authApi = emptyApi.injectEndpoints({
 
 });
 
-export const { useLoginUserMutation, useLogoutUserMutation } = authApi;
+export const { useLoginUserMutation, useLogoutUserMutation, useRegisterStudentMutation } = authApi;

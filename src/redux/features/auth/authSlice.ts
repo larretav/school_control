@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { LocalStorageConst } from '@/const/local-storage.const';
 import { RootState } from '@/redux/app/store';
 import { removeLocalStorage, setLocalStorage, getLocalStorage } from '@/utils/local-storage.utils';
-import { LoginResponse } from '@/interfaces/login-resp';
+import { LoginResponse } from '@/interfaces/login-resp.interface';
 
 interface IAuth {
   access_token: string,

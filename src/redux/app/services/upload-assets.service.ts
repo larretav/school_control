@@ -1,5 +1,5 @@
 import { emptyApiCloudinary } from "./api";
-import { IUploadImageBody } from "@/interfaces/upload-image-body";
+import { IUploadImageBody } from "@/interfaces/upload-image-body.interface";
 import UploadImageResp from "@/models/upload-image-resp.model";
 
 

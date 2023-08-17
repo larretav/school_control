@@ -4,11 +4,17 @@ import { Stack, Typography } from "@mui/material"
 // type Props = {}
 const TestsPage = () => {
 
-
-
+  const seed = () => {
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
 
   return (
     <>
+      
     </>
   )
 }

@@ -7,7 +7,7 @@ export interface ISignUp {
   firstName: string,
   lastName: string,
   age: string,
-  gender?: string,
+  gender: string,
   email: string,
   professionalCareer: number,
   image: FileObj

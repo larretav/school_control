@@ -38,7 +38,7 @@ export const getSignUpValidator = (onSubmit: any) => ({
     lastName: Yup.string().required('El apellido es obligatorio'),
     age: Yup.number()
       .required('La edad es obligatoria'),
-    gender: Yup.string(),
+    gender: Yup.string().required('El género es obligatorio'),
     email: Yup.string()
       .email('Correo no válido')
       .required('El correo electrónico es obligatorio'),
@@ -46,7 +46,7 @@ export const getSignUpValidator = (onSubmit: any) => ({
     password: Yup.string()
       .required('La contraseña es obligatoria')
       .min(8, 'La contraseña debe ser de 8 caracteres')
-      .max(8, 'El password debe ser de 8 caracteres'),
+      .max(8, 'La contraseña debe ser de 8 caracteres'),
     passwordConfirm: Yup.string()
       .oneOf([Yup.ref('password')], 'Las contraseñas no coinciden')
       .required('Es obligatorio confirmar la contraseña'),

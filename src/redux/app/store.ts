@@ -7,6 +7,7 @@ import loginReducer from "../features/login/loginSlice";
 import counterReducer from "../features/counter/counterSlice";
 import schoolSubjectsReducer from "../features/school_subjects/schoolSubjectsSlice";
 import studentsReducer from "../features/students/studentsSlice";
+import teachersReducer from "../features/teachers/teachersSlice";
 
 export const store = configureStore({
   reducer: {
@@ -18,7 +19,8 @@ export const store = configureStore({
     login: loginReducer,
     counter: counterReducer,
     schoolSubjects: schoolSubjectsReducer,
-    students: studentsReducer
+    students: studentsReducer,
+    teachers: teachersReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false

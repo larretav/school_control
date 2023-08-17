@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { PrivRoutes } from "@/const/routes.const";
 import { signinContainer, signinForm } from "./styles/common.style";
 import { setToggleForm } from "@/redux/features/login/loginSlice";
-import { LoginResponse } from "@/interfaces/login-resp";
+import { LoginResponse } from "@/interfaces/login-resp.interface";
 import ProgressIndicator from "@/components/ProgressIndicator";
 
 const SignIn = () => {
@@ -20,13 +20,11 @@ const SignIn = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const [loginUser, {isLoading}] = useLoginUserMutation();
+  const [loginUser, { isLoading }] = useLoginUserMutation();
 
   const handleSubmit = async (values: ISignIn) => {
 
     try {
-
-
       const cred = {
         username: values.username,
         password: values.password
@@ -35,6 +33,7 @@ const SignIn = () => {
       const tokenResp: LoginResponse = await loginUser(cred).unwrap();
 
       dispatch(setCredentials(tokenResp));
+      dispatch(setToggleForm());
 
       navigate(`/${PrivRoutes.AUTH}`, { replace: true });
 
@@ -112,6 +111,8 @@ const SignIn = () => {
               control={<Checkbox
                 id="remember"
                 color="secondary"
+                checked={formik.values.remember}
+                onChange={formik.handleChange}
               />}
               label="Recuérdame"
             />

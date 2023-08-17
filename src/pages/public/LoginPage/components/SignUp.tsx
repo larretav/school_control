@@ -18,24 +18,34 @@ import { selectProfessionalCareers, setProfessionalCareers, setToggleForm } from
 import Center from "@/components/Center";
 import ImageAvatar from "@/components/ImageAvatar";
 import { useUploadImageMutation } from "@/redux/app/services/upload-assets.service";
-import { IUploadImageBody } from "@/interfaces/upload-image-body";
+import { IUploadImageBody } from "@/interfaces/upload-image-body.interface";
 import { CloudinaryConst } from "@/const/cloudinary.const";
 import { ISignUp } from "@/interfaces/sign-up-interface";
 import { useLazyGetProfessionalCareerQuery } from "@/redux/app/services/professional-careers.service";
 import ProgressIndicator from "@/components/ProgressIndicator";
+import { IStudentBody } from "@/interfaces/student-body.interface";
+import { useLoginUserMutation, useRegisterStudentMutation } from "@/redux/app/services/auth.service";
+import { useNavigate } from "react-router-dom";
+import { PrivRoutes } from "@/const/routes.const";
+import { LoginResponse } from "@/interfaces/login-resp.interface";
+import { setCredentials } from "@/redux/features/auth/authSlice";
 
 const SignUp = () => {
 
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const profCareers = useAppSelector(selectProfessionalCareers)
 
   const [uploadImage] = useUploadImageMutation();
   const [getProfCareerQuery, { isUninitialized, isLoading, isFetching }] = useLazyGetProfessionalCareerQuery()
+  const [loginUserMut] = useLoginUserMutation();
+  const [registerStudentMut] = useRegisterStudentMutation();
 
   const handleSubmit = async (values: ISignUp) => {
 
     try {
+      debugger
       const imageBody: IUploadImageBody = {
         api_key: CloudinaryConst.API_KEY,
         upload_preset: CloudinaryConst.UPLOAD_PRESET,
@@ -43,9 +53,32 @@ const SignUp = () => {
         file: values.image.urlFile
       }
 
-      const uploadImageResp = await uploadImage(imageBody);
+      const uploadImageResp = await uploadImage(imageBody).unwrap();
 
-      console.log(uploadImageResp);
+      const studentBody: IStudentBody = {
+        userKey: values.username,
+        password: values.password,
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        birthdate: '2009/08/03',
+        gender: values.gender,
+        photoUrl: uploadImageResp.url,
+        professionalCareer: values.professionalCareer,
+      }
+
+      const studentRegister = await registerStudentMut(studentBody).unwrap();
+
+      const cred = {
+        username: 'root',
+        password: 'root'
+      }
+
+      const tokenResp: LoginResponse = await loginUserMut(cred).unwrap();
+
+      dispatch(setCredentials(tokenResp));
+
+      navigate(`/${PrivRoutes.AUTH}`, { replace: true });
 
     } catch (error: any) {
       console.log(error);
@@ -68,7 +101,7 @@ const SignUp = () => {
   useEffect(() => {
     getProfessionalCareers();
   }, [])
-  
+
 
   return (
     <>
@@ -198,9 +231,9 @@ const SignUp = () => {
                 helperText={formik.touched.gender && formik.errors.gender}
                 error={formik.touched.gender && Boolean(formik.errors.gender)}
               >
-                <MenuItem value="Hombre">Hombre</MenuItem>
-                <MenuItem value="Mujer">Mujer</MenuItem>
-                <MenuItem value="No binario">No binario</MenuItem>
+                <MenuItem value="M">Hombre</MenuItem>
+                <MenuItem value="F">Mujer</MenuItem>
+                <MenuItem value="X">No binario</MenuItem>
               </TextField>
             </Grid>
 
