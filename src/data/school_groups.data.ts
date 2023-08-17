@@ -2,84 +2,84 @@ import { ISchoolGroupBody } from "@/interfaces/school-group-body.interface";
 
 export const initSchoolGroupsData: ISchoolGroupBody[] = [
   {
-    schoolYear: 1,
-    groupNumber: 1,
-    status: 'A',
+    school_year: 1,
+    group_number: 1,
+    status: true,
   },
   {
-    schoolYear: 1,
-    groupNumber: 2,
-    status: 'A',
+    school_year: 1,
+    group_number: 2,
+    status: true,
   },
   {
-    schoolYear: 1,
-    groupNumber: 3,
-    status: 'A',
-  },
-
-  {
-    schoolYear: 2,
-    groupNumber: 1,
-    status: 'A',
+    school_year: 1,
+    group_number: 3,
+    status: true,
   },
 
   {
-    schoolYear: 2,
-    groupNumber: 2,
-    status: 'A',
-  },
-  {
-    schoolYear: 2,
-    groupNumber: 3,
-    status: 'A',
+    school_year: 2,
+    group_number: 1,
+    status: true,
   },
 
   {
-    schoolYear: 3,
-    groupNumber: 1,
-    status: 'A',
+    school_year: 2,
+    group_number: 2,
+    status: true,
+  },
+  {
+    school_year: 2,
+    group_number: 3,
+    status: true,
   },
 
   {
-    schoolYear: 3,
-    groupNumber: 2,
-    status: 'A',
-  },
-  {
-    schoolYear: 3,
-    groupNumber: 3,
-    status: 'A',
-  },
-  {
-    schoolYear: 4,
-    groupNumber: 1,
-    status: 'A',
+    school_year: 3,
+    group_number: 1,
+    status: true,
   },
 
   {
-    schoolYear: 4,
-    groupNumber: 2,
-    status: 'A',
+    school_year: 3,
+    group_number: 2,
+    status: true,
   },
   {
-    schoolYear: 4,
-    groupNumber: 3,
-    status: 'A',
+    school_year: 3,
+    group_number: 3,
+    status: true,
   },
   {
-    schoolYear: 5,
-    groupNumber: 1,
-    status: 'A',
+    school_year: 4,
+    group_number: 1,
+    status: true,
   },
 
   {
-    schoolYear: 5,
-    groupNumber: 2,
-    status: 'A',
+    school_year: 4,
+    group_number: 2,
+    status: true,
   },
   {
-    schoolYear: 5,
-    groupNumber: 3,
-    status: 'A',
+    school_year: 4,
+    group_number: 3,
+    status: true,
+  },
+  {
+    school_year: 5,
+    group_number: 1,
+    status: true,
+  },
+
+  {
+    school_year: 5,
+    group_number: 2,
+    status: true,
+  },
+  {
+    school_year: 5,
+    group_number: 3,
+    status: true,
   },
 ]

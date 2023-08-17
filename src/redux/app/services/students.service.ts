@@ -15,9 +15,23 @@ export const studentsApi = apiWithTag.injectEndpoints({
       providesTags: ['Students'],
     }),
 
+    addStudent: builder.mutation({
+      query: (body) => ({
+        url: '/auth/register/student/',
+        method: 'POST',
+        body
+      }),
+    }),
+
+    deleteStudent: builder.mutation({
+      query: (id) => ({
+        url: `/student/${id}/`,
+        method: 'DELETE'
+      }),
+    })
 
   })
 
 });
 
-export const { useLazyGetStudentsQuery } = studentsApi;
+export const { useLazyGetStudentsQuery, useAddStudentMutation, useDeleteStudentMutation } = studentsApi;

@@ -1,6 +1,6 @@
 export interface IProfessionalCareerBody {
-  programNumber: number,
+  program_number: number,
   name: string,
-  numberSemesters: number,
-  status: string,
+  number_semesters: number,
+  status: boolean,
 }

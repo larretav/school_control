@@ -3,7 +3,7 @@ import { emptyApi } from "./api";
 import ProfessionalCareer from "@/models/professional-career.model";
 
 
-const apiWithTag = emptyApi.enhanceEndpoints({ addTagTypes: ['ProfessionalCareer', 'ProfessionalCareerByTerm'] })
+const apiWithTag = emptyApi.enhanceEndpoints({ addTagTypes: ['ProfessionalCareer'] })
 
 export const professionalCareerApi = apiWithTag.injectEndpoints({
 
@@ -17,16 +17,16 @@ export const professionalCareerApi = apiWithTag.injectEndpoints({
       providesTags: ['ProfessionalCareer'],
     }),
 
-    getProfessionalCareerByTerm: builder.query<ProfessionalCareer, string>({
-      query: (term: string) => `/professional_careers/${term}`,
-      transformResponse: (response: any) => {
-        return ProfessionalCareer.fromJson(response);
-      },
-      providesTags: ['ProfessionalCareerByTerm'],
-    }),
+    addProfessionalCareer: builder.mutation({
+      query: (body) => ({
+        url: '/professional-career/create/',
+        method: 'POST',
+        body
+      }),
+    })
 
   })
 
 });
 
-export const { useLazyGetProfessionalCareerQuery, useLazyGetProfessionalCareerByTermQuery} = professionalCareerApi;
+export const { useLazyGetProfessionalCareerQuery, useAddProfessionalCareerMutation} = professionalCareerApi;

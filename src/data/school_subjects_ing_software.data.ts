@@ -1,364 +1,364 @@
 import { ISchoolSubjectBody } from "@/interfaces/school-subject-body.interface";
 
 export const initSchoolSubjectsIngSoftwareData: ISchoolSubjectBody[] = [
+  // {
+  //   semester: 1,
+  //   status: true,
+  //   name: 'MATEMÁTICAS DISCRETAS'
+  // },
   {
     semester: 1,
-    subjectKey: 5101,
-    name: 'MATEMÁTICAS DISCRETAS'
-  },
-  {
-    semester: 1,
-    subjectKey: 5102,
+    status: true,
     name: 'ÁLGEBRA LINEAL'
   },
   {
     semester: 1,
-    subjectKey: 5103,
+    status: true,
     name: 'FUNDAMENTOS DE COMPUTACIÓN'
   },
   {
     semester: 1,
-    subjectKey: 5104,
+    status: true,
     name: 'ALGORITMOS Y LÓGICA COMPUTACIONAL'
   },
   {
     semester: 1,
-    subjectKey: 5105,
+    status: true,
     name: 'LABORATORIO  ALGORITMOS Y LÓGICA COMPUTACIONAL'
   },
   {
     semester: 1,
-    subjectKey: 5106,
+    status: true,
     name: 'COMPRENSIÓN Y PRODUCCIÓN DE TEXTOS'
   },
   {
     semester: 1,
-    subjectKey: 5107,
+    status: true,
     name: 'ADMINISTRACIÓN Y CONTABILIDAD'
   },
   {
     semester: 2,
-    subjectKey: 5208,
+    status: true,
     name: 'CÁLCULO DIFERENCIAL E INTEGRAL'
   },
   {
     semester: 2,
-    subjectKey: 5209,
+    status: true,
     name: 'ARQUITECTURA DE COMPUTADORAS'
   },
   {
     semester: 2,
-    subjectKey: 5210,
+    status: true,
     name: 'COMPRENSIÓN Y PRODUCCIÓN DE TEXTOS EN INGLÉS'
   },
   {
     semester: 2,
-    subjectKey: 5211,
+    status: true,
     name: 'PROGRAMACIÓN I'
   },
   {
     semester: 2,
-    subjectKey: 5212,
+    status: true,
     name: 'LABORATORIO DE PROGRAMACIÓN I'
   },
   {
     semester: 2,
-    subjectKey: 5213,
+    status: true,
     name: 'SISTEMAS OPERATIVOS'
   },
   {
     semester: 2,
-    subjectKey: 5214,
+    status: true,
     name: 'LABORATORIO DE SISTEMAS OPERATIVOS'
   },
   {
     semester: 2,
-    subjectKey: 5215,
+    status: true,
     name: 'COSTOS'
   },
   {
     semester: 3,
-    subjectKey: 5316,
+    status: true,
     name: 'TEORÍA DE LA COMPUTACIÓN'
   },
   {
     semester: 3,
-    subjectKey: 5317,
+    status: true,
     name: 'ARQUITECTURA DE COMPUTADORAS II'
   },
   {
     semester: 3,
-    subjectKey: 5318,
+    status: true,
     name: 'LABORATORIO ARQUITECTURA DE COMPUTADORAS II'
   },
   {
     semester: 3,
-    subjectKey: 5319,
+    status: true,
     name: 'ESTRUCTURA DE DATOS'
   },
   {
     semester: 3,
-    subjectKey: 5320,
+    status: true,
     name: 'LABORATORIO DE ESTRUCTURA DE DATOS'
   },
   {
     semester: 3,
-    subjectKey: 5321,
+    status: true,
     name: 'PROGRAMACIÓN II'
   },
   {
     semester: 3,
-    subjectKey: 5322,
+    status: true,
     name: 'LABORATORIO DE PROGRAMACIÓN II'
   },
   {
     semester: 3,
-    subjectKey: 5323,
+    status: true,
     name: 'PROBABILIDAD Y ESTADÍSTICA'
   },
   {
     semester: 3,
-    subjectKey: 5324,
+    status: true,
     name: 'VALORES Y ÉTICA PROFESIONAL'
   },
   {
     semester: 4,
-    subjectKey: 5425,
+    status: true,
     name: 'INVESTIGACIÓN DE OPERACIONES'
   },
   {
     semester: 4,
-    subjectKey: 5426,
+    status: true,
     name: 'INGENIERÍA DE SOFTWARE I'
   },
   {
     semester: 4,
-    subjectKey: 5427,
+    status: true,
     name: 'REDES I'
   },
   {
     semester: 4,
-    subjectKey: 5428,
+    status: true,
     name: 'LABORATORIO DE REDES I'
   },
   {
     semester: 4,
-    subjectKey: 5429,
+    status: true,
     name: 'PROGRAMACIÓN ORIENTADA A OBJETOS'
   },
   {
     semester: 4,
-    subjectKey: 5430,
+    status: true,
     name: 'LABORATORIO PROGRAMACIÓN ORIENTADA A OBJETOS'
   },
   {
     semester: 4,
-    subjectKey: 5431,
+    status: true,
     name: 'FUNDAMENTOS DE BASES DE DATOS'
   },
   {
     semester: 4,
-    subjectKey: 5432,
+    status: true,
     name: 'LABORATORIO FUNDAMENTOS DE BASES DE DATOS'
   },
   {
     semester: 4,
-    subjectKey: 5433,
+    status: true,
     name: 'SISTEMAS DIGITALES'
   },
   {
     semester: 5,
-    subjectKey: 5534,
+    status: true,
     name: 'INGENIERÍA ECONÓMICA'
   },
   {
     semester: 5,
-    subjectKey: 5535,
+    status: true,
     name: 'INGENIERÍA DE SOFTWARE II'
   },
   {
     semester: 5,
-    subjectKey: 5536,
+    status: true,
     name: 'REDES II'
   },
   {
     semester: 5,
-    subjectKey: 5537,
+    status: true,
     name: 'LABORATORIO DE REDES II'
   },
   {
     semester: 5,
-    subjectKey: 5538,
+    status: true,
     name: 'LENGUAJES DE PROGRAMACIÓN'
   },
   {
     semester: 5,
-    subjectKey: 5539,
+    status: true,
     name: 'LABORATORIO LENGUAJES DE PROGRAMACIÓN'
   },
   {
     semester: 5,
-    subjectKey: 5540,
+    status: true,
     name: 'BASES DE DATOS DISTRIBUIDAS'
   },
   {
     semester: 5,
-    subjectKey: 5541,
+    status: true,
     name: 'LABORATORIO BASES DE DATOS DISTRIBUIDAS'
   },
   {
     semester: 5,
-    subjectKey: 5542,
+    status: true,
     name: 'METODOLOGÍA DE LA INVESTIGACIÓN'
   },
   {
     semester: 6,
-    subjectKey: 5643,
+    status: true,
     name: 'SISTEMA DE INFORMACIÓN'
   },
   {
     semester: 6,
-    subjectKey: 5644,
+    status: true,
     name: 'DESARROLLO DE APLICACIONES WEB I'
   },
   {
     semester: 6,
-    subjectKey: 5645,
+    status: true,
     name: 'LABORATORIO DESARROLLO DE APLICACIONES WEB I'
   },
   {
     semester: 6,
-    subjectKey: 5646,
+    status: true,
     name: 'INTERACCCIÓN HUMANO COMPUTADORA'
   },
   {
     semester: 6,
-    subjectKey: 5647,
+    status: true,
     name: 'LABORATORIO INTERACCIÓN HUMANO COMPUTADORA'
   },
   {
     semester: 6,
-    subjectKey: 5649,
+    status: true,
     name: 'ADMINISTRACIÓN DE PROYECTOS DE SOFTWARE I'
   },
   {
     semester: 6,
-    subjectKey: 5650,
+    status: true,
     name: 'LABORATORIO ADMINISTRACIÓN DE PROYECTOS DE SOFTWARE I'
   },
   {
     semester: 6,
-    subjectKey: 5651,
+    status: true,
     name: 'ADMINISTRACIÓN DE SISTEMAS'
   },
   {
     semester: 6,
-    subjectKey: 5652,
+    status: true,
     name: 'LABORATORIO ADMINISTRACIÓN DE SISTEMAS'
   },
   {
     semester: 7,
-    subjectKey: 5753,
+    status: true,
     name: 'SOFTWARE DE SISTEMAS'
   },
   {
     semester: 7,
-    subjectKey: 5754,
+    status: true,
     name: 'DESARROLLO DE APLICACIONES WEB II'
   },
   {
     semester: 7,
-    subjectKey: 5755,
+    status: true,
     name: 'LABORATORIO DESARROLLO DE APLICACIONES WEB II'
   },
   {
     semester: 7,
-    subjectKey: 5756,
+    status: true,
     name: 'SISTEMAS DE APOYO A LA TOMA DE DECISIONES'
   },
   {
     semester: 7,
-    subjectKey: 5757,
+    status: true,
     name: 'ADMINISTRACIÓN DE PROYECTOS DE SOFTWARE II'
   },
   {
     semester: 7,
-    subjectKey: 5758,
+    status: true,
     name: 'LABORATORIO ADMINISTRACIÓN DE PROYECTOS DE SOFTWARE II'
   },
   {
     semester: 7,
-    subjectKey: 5759,
+    status: true,
     name: 'MODELADO DE PROCESOS'
   },
   {
     semester: 8,
-    subjectKey: 5860,
+    status: true,
     name: 'GRAFICACIÓN'
   },
   {
     semester: 8,
-    subjectKey: 5861,
+    status: true,
     name: 'LABORATORIO DE GRAFICACIÓN'
   },
   {
     semester: 8,
-    subjectKey: 5862,
+    status: true,
     name: 'SISTEMAS DISTRIBUIDOS'
   },
   {
     semester: 8,
-    subjectKey: 5863,
+    status: true,
     name: 'LABORATORIO SISTEMAS DISTRIBUIDOS'
   },
   {
     semester: 8,
-    subjectKey: 5864,
+    status: true,
     name: 'COMPUTACIÓN UBICUA'
   },
   {
     semester: 8,
-    subjectKey: 5865,
+    status: true,
     name: 'LABORATORIO COMPUTACIÓN UBICUA'
   },
   {
     semester: 8,
-    subjectKey: 5866,
+    status: true,
     name: 'INNOVACIÓN DE PROCESOS CON NTIC'
   },
   {
     semester: 8,
-    subjectKey: 5084,
+    status: true,
     name: 'REDES NEURONALES Y LÓGICA DIFUSA'
   },
   {
     semester: 9,
-    subjectKey: 5968,
+    status: true,
     name: 'INTELIGENCIA ARTIFICIAL'
   },
   {
     semester: 9,
-    subjectKey: 5969,
+    status: true,
     name: 'LABORATORIO INTELIGENCIA ARTIFICIAL'
   },
   {
     semester: 9,
-    subjectKey: 5970,
+    status: true,
     name: 'TÓPICOS AVANZADOS DE INGENIERÍA DE SOFTWARE'
   },
   {
     semester: 9,
-    subjectKey: 5971,
+    status: true,
     name: 'PRÁCTICA PROFESIONAL'
   },
   {
     semester: 9,
-    subjectKey: 5074,
+    status: true,
     name: 'CÓMPUTO EN LA NUBE'
   },
   {
     semester: 9,
-    subjectKey: 5085,
+    status: true,
     name: 'MINERÍA DE DATOS'
   }
 ]

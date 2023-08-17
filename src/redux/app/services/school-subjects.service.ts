@@ -2,7 +2,7 @@ import SchoolSubject from "@/models/school-subject.model";
 import { emptyApi } from "./api";
 
 
-const apiWithTag = emptyApi.enhanceEndpoints({ addTagTypes: ['SchoolSubjects', 'SchoolSubjectsById'] })
+const apiWithTag = emptyApi.enhanceEndpoints({ addTagTypes: ['SchoolSubjects', 'SchoolSubjectById'] })
 
 export const schoolSubjectsApi = apiWithTag.injectEndpoints({
 
@@ -16,16 +16,24 @@ export const schoolSubjectsApi = apiWithTag.injectEndpoints({
       providesTags: ['SchoolSubjects'],
     }),
 
-    getSchoolSubjectById: builder.query<any, string>({
-      query: (id: string) => `/school_subjects/${id}`,
+    getSchoolSubjectById: builder.query<SchoolSubject, string>({
+      query: (id: string) => `/school-subject/${id}/`,
       transformResponse: (response: any) => {
         return SchoolSubject.fromJson(response);
       },
-      providesTags: ['SchoolSubjectsById'],
+      providesTags: ['SchoolSubjectById'],
     }),
+
+    addSchoolSubject: builder.mutation({
+      query: (body) => ({
+        url: '/school-subject/create/',
+        method: 'POST',
+        body
+      }),
+    })
 
   })
 
 });
 
-export const { useLazyGetSchoolSubjectsQuery, useLazyGetSchoolSubjectByIdQuery } = schoolSubjectsApi;
+export const { useLazyGetSchoolSubjectsQuery, useAddSchoolSubjectMutation } = schoolSubjectsApi;
