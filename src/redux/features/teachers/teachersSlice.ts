@@ -26,13 +26,15 @@ export const teachersSlice = createSlice({
       state.teachersFilterResults = action.payload;
     },
 
-
     // Inptus
     setInputTeacher: (state, action: PayloadAction<string>) => {
       state.inpTeacher = action.payload;
       state.teachersFilterResults = teacherFilter(state);
     },
 
+    setNewTeacherDialogToggle: (state) => {
+      state.openNewTeacherDialog = !state.openNewTeacherDialog;
+    },
 
     teacherReset: () => initialState
   },
@@ -41,13 +43,15 @@ export const teachersSlice = createSlice({
 export const {
   setTeachers,
   setInputTeacher,
-
+  setNewTeacherDialogToggle,
   teacherReset
 } = teachersSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectTeachers = (state: RootState) => state.teachers.teachers;
 export const selectTeachersFilterResults = (state: RootState) => state.teachers.teachersFilterResults;
+
+export const selectOpenNewTeacherDialog = (state: RootState) => state.teachers.openNewTeacherDialog;
 
 // Inputs
 export const selectInpTeacher = (state: RootState) => state.teachers.inpTeacher;

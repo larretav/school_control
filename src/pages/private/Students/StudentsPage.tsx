@@ -96,7 +96,7 @@ const StudentsPage = (props: Props) => {
 
         </Grid>
 
-        <Grid container item alignItems="center" height="calc(100vh - (64px + 32px + 80px + 24px))">
+        <Grid container item alignItems="center" height="calc(100vh - (64px + 32px + 64px))">
           <Grid item xs={12} className="h-full">
             <GridPaginator gridProps={{ spacing: 1 }} sx={{ bgcolor: 'transparent' }} >
               {

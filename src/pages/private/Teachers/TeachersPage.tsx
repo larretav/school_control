@@ -9,8 +9,9 @@ import { selectInpStudent, selectProfCareerSelected, selectProfessionalCareers, 
 import { useLazyGetProfessionalCareerQuery } from "@/redux/app/services/professional-careers.service"
 import { ChangeEvent, useEffect } from "react"
 import { useLazyGetStudentsQuery } from "@/redux/app/services/students.service"
-import { selectInpTeacher, selectTeachersFilterResults, setInputTeacher, setTeachers } from "@/redux/features/teachers/teachersSlice"
+import { selectInpTeacher, selectTeachersFilterResults, setInputTeacher, setNewTeacherDialogToggle, setTeachers } from "@/redux/features/teachers/teachersSlice"
 import { useLazyGetTeachersQuery } from "@/redux/app/services/teachers.service"
+import NewTeacherDialog from "./components/NewTeacherDialog"
 
 type Props = {}
 
@@ -25,6 +26,7 @@ const TeachersPage = (props: Props) => {
   const [getTeacherQuery, { isUninitialized: isUnTeacher, isFetching: isFetchTeacher }] = useLazyGetTeachersQuery();
 
   const handleChangeTeacher = (e: ChangeEvent<HTMLInputElement>) => dispatch(setInputTeacher(e.target.value))
+  const handleClickNewTeacher = (e: ChangeEvent<HTMLInputElement>) => dispatch(setNewTeacherDialogToggle())
 
   const getTeachers = async () => {
     try {
@@ -69,17 +71,18 @@ const TeachersPage = (props: Props) => {
         </Grid>
 
 
-        <Grid item xs={12} md={2}>
+        {/* <Grid item xs={12} md={2}>
           <Button
             color="teal"
             startIcon={<Add />}
             fullWidth
+            onClick={handleClickNewTeacher}
           >
             Nuevo
           </Button>
-        </Grid>
+        </Grid> */}
 
-        <Grid container item alignItems="center" height="calc(100vh - (64px + 32px + 80px + 24px))">
+        <Grid container item alignItems="center" height="calc(100vh - (64px + 32px + 64px))">
           <Grid item xs={12} className="h-full">
             <GridPaginator gridProps={{ spacing: 1 }} sx={{ bgcolor: 'transparent' }} >
               {
@@ -107,6 +110,7 @@ const TeachersPage = (props: Props) => {
         </Grid>
       </Grid>
 
+      <NewTeacherDialog />
       <ProgressIndicator isLoading={isUnTeacher || isFetchTeacher} />
     </>
   )

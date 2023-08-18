@@ -7,19 +7,67 @@ import { Grid } from "@mui/material"
 import ButtonCard from "./components/ButtonCard"
 import { PrivRoutes } from "@/const/routes.const"
 import GradeFilled from "@/icons/GradeFilled"
+import { useLazyGetSchoolSubjectsQuery } from "@/redux/app/services/school-subjects.service"
+import { useEffect } from "react"
+import { useLazyGetStudentsQuery } from "@/redux/app/services/students.service"
+import { useLazyGetTeachersQuery } from "@/redux/app/services/teachers.service"
+import { useAppDispatch, useAppSelector } from "@/redux/app/hooks"
+import { dashboardReset, selectStudentsCount, selectSubjectsCount, selectTeachersCount, setStudentsCount, setSubjectsCount, setTeachersCount } from "@/redux/features/dashboard/dashbaordSlice"
+import ProgressIndicator from "@/components/ProgressIndicator"
 
 const DashboardPage = () => {
+
+  const dispatch = useAppDispatch();
+
+  const studentsCount = useAppSelector(selectStudentsCount);
+  const teachersCount = useAppSelector(selectTeachersCount);
+  const subjectsCount = useAppSelector(selectSubjectsCount);
+
+  const [getStudentsQuery, { isLoading: isLoStudents }] = useLazyGetStudentsQuery();
+  const [getTeachersQuery, { isLoading: isLoTeachers }] = useLazyGetTeachersQuery();
+  const [getSchoolSubjQuery, { isLoading: isLoSubjects }] = useLazyGetSchoolSubjectsQuery();
+
+  const handleGetData = async () => {
+    try {
+      const studentsResp = await getStudentsQuery().unwrap();
+      const teachersResp = await getTeachersQuery().unwrap();
+      const subjectsResp = await getSchoolSubjQuery().unwrap();
+
+      dispatch(setStudentsCount(studentsResp.length));
+      dispatch(setTeachersCount(teachersResp.length));
+      dispatch(setSubjectsCount(subjectsResp.length));
+
+
+    } catch (error) {
+
+    }
+  }
+
+  useEffect(() => {
+    handleGetData();
+
+    return () => {
+      dispatch(dashboardReset());
+    }
+  }, [])
+
 
   return (
     <>
       <Grid container justifyContent="space-between" spacing={5}>
         {
           [
-            { title: 'Estudiantes', value: "273", icon: <Groups fontSize="large" />, color: red },
-            { title: 'Maestros', value: "10", icon: <Group fontSize="large" />, color: green },
-            { title: 'Asignaturas', value: "110", icon: <School fontSize="large" />, color: orange },
+            { title: 'Estudiantes', value: studentsCount, icon: <Groups fontSize="large" />, color: red },
+            { title: 'Maestros', value: teachersCount, icon: <Group fontSize="large" />, color: green },
+            { title: 'Asignaturas', value: subjectsCount, icon: <School fontSize="large" />, color: orange },
           ].map((item, idx) => <Grid key={item.title + idx} item xs={12} sm={4}>
-            <StatisticsCard title={item.title} value={item.value} icon={item.icon} color={item.color} />
+            <StatisticsCard
+              title={item.title}
+              value={`${item.value}`}
+              icon={item.icon} color={item.color}
+              isLoading={isLoStudents || isLoTeachers || isLoSubjects}
+            />
+
           </Grid>
           )
         }

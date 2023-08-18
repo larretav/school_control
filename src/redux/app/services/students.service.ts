@@ -17,10 +17,11 @@ export const studentsApi = apiWithTag.injectEndpoints({
 
     addStudent: builder.mutation({
       query: (body) => ({
-        url: '/auth/register/student/',
-        method: 'POST',
+        url: '/auth/register/students/',
+        method: 'POST', 
         body
-      }),
+      })
+
     }),
 
     deleteStudent: builder.mutation({

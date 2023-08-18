@@ -6,7 +6,7 @@ import { Button, Grid, Stack, Typography } from "@mui/material"
 // type Props = {}
 const TestsPage = () => {
 
-  const { executeSeedProfCareers, executeSeedSchoolSubjects, executeSeedGroups, isLoading } = useSeed();
+  const { executeSeedProfCareers, executeSeedSchoolSubjects, executeSeedGroups, executeSeedStudents, isLoading } = useSeed();
 
 
   const handleClickProfCareer = async () => {
@@ -33,6 +33,14 @@ const TestsPage = () => {
     }
   }
 
+  const handleClickStudents = async () => {
+    try {
+      await executeSeedStudents();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <Grid container >
@@ -53,9 +61,15 @@ const TestsPage = () => {
               Init School Subjects
             </Button> */}
 
-            <Button
+            {/* <Button
               color="primary"
               onClick={handleClickSchoolGroups}
+            >
+              Init School Groups
+            </Button> */}
+            <Button
+              color="primary"
+              onClick={handleClickStudents}
             >
               Init School Groups
             </Button>

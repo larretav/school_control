@@ -10,7 +10,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "F",
     "birthdate": "2002-04-18",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 9
   },
   {
     "userKey": "luiriv345678",
@@ -21,7 +21,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "M",
     "birthdate": "2001-09-30",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 9
   },
 
   {
@@ -33,7 +33,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "M",
     "birthdate": "2005-02-10",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 9
   },
   {
     "userKey": "lidgon123456",
@@ -44,7 +44,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "F",
     "birthdate": "2004-07-18",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 9
   },
   {
     "userKey": "hugher987654",
@@ -55,7 +55,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "M",
     "birthdate": "2003-11-05",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 2
+    "professionalCareer": 8
   },
   {
     "userKey": "marflo234567",
@@ -66,7 +66,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "F",
     "birthdate": "2002-05-29",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 9
   },
   {
     "userKey": "luimor345678",
@@ -77,7 +77,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "M",
     "birthdate": "2001-09-12",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 9
   },
   {
     "userKey": "aliros678901",
@@ -88,7 +88,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "F",
     "birthdate": "2000-01-27",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 2
+    "professionalCareer": 8
   },
   {
     "userKey": "ferper789012",
@@ -99,7 +99,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "M",
     "birthdate": "1999-04-03",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 9
   },
   {
     "userKey": "annram890123",
@@ -110,7 +110,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "F",
     "birthdate": "1998-07-22",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 9
   },
   {
     "userKey": "pedgon901234",
@@ -121,7 +121,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "M",
     "birthdate": "1997-10-14",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 2
+    "professionalCareer": 8
   },
   {
     "userKey": "carher012345",
@@ -132,7 +132,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "F",
     "birthdate": "1996-12-01",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 9
   },
   {
     "userKey": "rogmon123456",
@@ -143,7 +143,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "M",
     "birthdate": "1995-03-25",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 7
   },
   {
     "userKey": "valgue234567",
@@ -154,7 +154,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "F",
     "birthdate": "1994-06-17",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 2
+    "professionalCareer": 8
   },
   {
     "userKey": "juavas345678",
@@ -165,7 +165,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "M",
     "birthdate": "1993-09-09",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 7
   },
   {
     "userKey": "catmar456789",
@@ -176,7 +176,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "F",
     "birthdate": "1992-12-03",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 7
   },
   {
     "userKey": "edumer567890",
@@ -187,7 +187,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "M",
     "birthdate": "1991-02-25",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 2
+    "professionalCareer": 8
   },
   {
     "userKey": "anacor678901",
@@ -198,7 +198,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "F",
     "birthdate": "1990-05-21",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 7
   },
   {
     "userKey": "felgon789012",
@@ -209,7 +209,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "F",
     "birthdate": "1989-08-15",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 7
   },
   {
     "userKey": "gerpaz890123",
@@ -220,7 +220,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "M",
     "birthdate": "1988-11-10",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 2
+    "professionalCareer": 8
   },
   {
     "userKey": "patgar901234",
@@ -231,7 +231,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "F",
     "birthdate": "1987-02-04",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 7
   },
   {
     "userKey": "luisep012345",
@@ -242,7 +242,7 @@ export const initStudentsData: IStudentBody[] = [
     "gender": "M",
     "birthdate": "1986-05-01",
     "photoUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
-    "professionalCareer": 1
+    "professionalCareer": 7
   }
 ]
 

@@ -8,6 +8,7 @@ import counterReducer from "../features/counter/counterSlice";
 import schoolSubjectsReducer from "../features/school_subjects/schoolSubjectsSlice";
 import studentsReducer from "../features/students/studentsSlice";
 import teachersReducer from "../features/teachers/teachersSlice";
+import dashboardReducer from "../features/dashboard/dashbaordSlice";
 
 export const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ export const store = configureStore({
     auth: authReducer,
     layout: layoutReducer,
     login: loginReducer,
+    dashboard: dashboardReducer,
     counter: counterReducer,
     schoolSubjects: schoolSubjectsReducer,
     students: studentsReducer,
