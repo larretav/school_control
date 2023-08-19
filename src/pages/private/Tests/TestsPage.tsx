@@ -69,7 +69,7 @@ const TestsPage = () => {
             </Button> */}
             <Button
               color="primary"
-              onClick={handleClickStudents}
+              onClick={handleClickSchoolGroups}
             >
               Init School Groups
             </Button>

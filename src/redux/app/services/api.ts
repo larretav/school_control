@@ -8,8 +8,9 @@ export const emptyApi = createApi({
   reducerPath: 'emptyApi',
 
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:8011/',
+    // baseUrl: 'http://localhost:8011',
     // baseUrl: 'http://localhost:4000/api',
+    baseUrl: 'https://school-control-back-dock-img.up.railway.app',
     prepareHeaders: (headers, {getState }) => {
       
       let token = (getState() as RootState).auth.remember
