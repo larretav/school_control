@@ -34,7 +34,7 @@ import { selectSidebarOpen, setSidebarOpen } from '@/redux/features/layout/layou
 const Header = () => {
 
   const theme = useTheme();
-  const mobileMatch = useMediaQuery(theme.breakpoints.down('sm'));
+  const mobileMatch = useMediaQuery(theme.breakpoints.down('md'));
 
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -69,7 +69,7 @@ const Header = () => {
             </Fade>
 
 
-            <Typography variant="h6" noWrap sx={toolbarTitle} >Control escolar</Typography>
+            <Typography  variant="h6" fontWeight={400} textAlign="center" noWrap sx={toolbarTitle} >Control escolar</Typography>
 
             <Box sx={userMenuStyle}>
 

@@ -54,13 +54,13 @@ const DashboardPage = () => {
 
   return (
     <>
-      <Grid container justifyContent="space-between" spacing={5}>
+      <Grid container justifyContent="space-between" spacing={{xs: 2, md: 5}}>
         {
           [
             { title: 'Estudiantes', value: studentsCount, icon: <Groups fontSize="large" />, color: red },
             { title: 'Maestros', value: teachersCount, icon: <Group fontSize="large" />, color: green },
             { title: 'Asignaturas', value: subjectsCount, icon: <School fontSize="large" />, color: orange },
-          ].map((item, idx) => <Grid key={item.title + idx} item xs={12} sm={4}>
+          ].map((item, idx) => <Grid key={item.title + idx} item xs={12} md={4}>
             <StatisticsCard
               title={item.title}
               value={`${item.value}`}
@@ -80,7 +80,7 @@ const DashboardPage = () => {
             { icon: <FactCheck sx={{ fontSize: 50 }} />, title: 'Asistencia', route: PrivRoutes.ATTENDANCES },
             { icon: <GradeFilled sx={{ fontSize: 50 }} />, title: 'Calificaciones', route: PrivRoutes.GRADES },
             { icon: <Settings sx={{ fontSize: 50 }} />, title: 'Configuración', route: PrivRoutes.SETTINGS },
-          ].map((item) => <Grid key={item.route} item xs={12} sm={2}>
+          ].map((item) => <Grid key={item.route} item xs={12} sm={4} md={2}>
             <ButtonCard title={item.title} route={item.route} icon={item.icon} />
           </Grid>
           )

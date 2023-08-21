@@ -76,7 +76,7 @@ const Sidebar = () => {
   ]
 
   const theme = useTheme();
-  const mobileMatch = useMediaQuery(theme.breakpoints.down('sm'));
+  const mobileMatch = useMediaQuery(theme.breakpoints.down('md'));
 
   const isSidebarOpen = useAppSelector(selectSidebarOpen);
 

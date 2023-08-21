@@ -64,7 +64,7 @@ const GridPaginator: FC<GridPaginatorProps> = ({
 
 
 
-      <Grid container {...gridProps} flex={1} className="overflow-y-auto overflow-x-hidden ">
+      <Grid container {...gridProps} alignItems="self-start" justifyContent="flex-start" flex={1} className="overflow-y-auto overflow-x-hidden ">
         {
           children.slice((page - 1) * itemsPerPage, (page - 1) * itemsPerPage + itemsPerPage)
         }
